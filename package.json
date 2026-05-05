@@ -1,5 +1,4 @@
 {
-  "private": true,
   "license": "AGPL-3.0-only",
   "name": "jest-canvas-mock-compare-monorepo",
   "type": "module",
