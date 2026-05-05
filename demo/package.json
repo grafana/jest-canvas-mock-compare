@@ -3,7 +3,7 @@
   "private": true,
   "license": "AGPL-3.0-only",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "packageManager": "yarn@4.11.0",
   "scripts": {
@@ -20,8 +20,8 @@
     "@types/react-dom": "^19.1.2",
     "jest": "29.7.0",
     "jest-canvas-mock": "^2.5.2",
-    "jest-canvas-mock-compare": "file:../packages/jest-canvas-mock-compare",
-    "jest-canvas-mock-compare-viewer": "file:../packages/jest-canvas-mock-compare-viewer",
+    "jest-canvas-mock-compare": "^0.0.1",
+    "jest-canvas-mock-compare-viewer": "^0.0.1",
     "jest-environment-jsdom": "29.7.0",
     "jest-snapshot": "29.7.0",
     "react": "^19.1.0",

@@ -2333,8 +2333,8 @@ __metadata:
     "@types/react-dom": "npm:^19.1.2"
     jest: "npm:29.7.0"
     jest-canvas-mock: "npm:^2.5.2"
-    jest-canvas-mock-compare: "file:../packages/jest-canvas-mock-compare"
-    jest-canvas-mock-compare-viewer: "file:../packages/jest-canvas-mock-compare-viewer"
+    jest-canvas-mock-compare: "npm:^0.0.1"
+    jest-canvas-mock-compare-viewer: "npm:^0.0.1"
     jest-environment-jsdom: "npm:29.7.0"
     jest-snapshot: "npm:29.7.0"
     react: "npm:^19.1.0"
@@ -2345,12 +2345,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare-viewer@file:../packages/jest-canvas-mock-compare-viewer::locator=jest-canvas-mock-compare-demo%40workspace%3A.":
-  version: 0.1.0
-  resolution: "jest-canvas-mock-compare-viewer@file:../packages/jest-canvas-mock-compare-viewer#../packages/jest-canvas-mock-compare-viewer::hash=de944d&locator=jest-canvas-mock-compare-demo%40workspace%3A."
+"jest-canvas-mock-compare-viewer@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "jest-canvas-mock-compare-viewer@npm:0.0.1"
   dependencies:
     connect: "npm:^3.7.0"
-    jest-canvas-mock-compare: "npm:^0.1.0"
+    jest-canvas-mock-compare: "workspace:*"
     json-diff-kit: "npm:1.0.35"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -2358,13 +2358,13 @@ __metadata:
     sirv: "npm:^3.0.0"
   bin:
     jest-canvas-mock-compare: bin/cli.js
-  checksum: 10c0/c7ef0989e935ef475cbdf22d8f53b5034ea70ab10512e5e6351167c8dc06efc59551e4975ae0a97161f137289e81c7d422e63552ac2b5d981dd6df0a5802c531
+  checksum: 10c0/69ded31727b9327dd2530e60b79556384c37d3f02fdec80487478ddd5ac69a59f67fb1fcd488e94f32044faff44061e0edc67e282eded42adf5f2be718b0fc16
   languageName: node
   linkType: hard
 
 "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare::locator=jest-canvas-mock-compare-demo%40workspace%3A.":
-  version: 0.1.0
-  resolution: "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare#../packages/jest-canvas-mock-compare::hash=33ae56&locator=jest-canvas-mock-compare-demo%40workspace%3A."
+  version: 0.0.1
+  resolution: "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare#../packages/jest-canvas-mock-compare::hash=30f8a8&locator=jest-canvas-mock-compare-demo%40workspace%3A."
   peerDependencies:
     jest: ">=29"
     jest-canvas-mock: ">=2.5"
@@ -2376,7 +2376,7 @@ __metadata:
       optional: false
     jest-snapshot:
       optional: false
-  checksum: 10c0/466cdeb6deea389d2487466a57c5e583e4a69cc52860f238bc4d0037c2aa0491e5f93df53ea557da2a4b1e2b22bd22c4db5ccebb5e3d8efb05c2b6d54c4d5919
+  checksum: 10c0/3b62f69a2b84d641a78f7a671fd364daa6764bfd098fa001157f2cb13f52fa42fdbe6bbaceab18cda833f000779cda237667d397defb4e43cee7e0530cbbab35
   languageName: node
   linkType: hard
 
