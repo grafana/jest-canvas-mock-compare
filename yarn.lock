@@ -4400,7 +4400,7 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.8"
     jest: "npm:29.7.0"
     jest-canvas-mock: "npm:^2.5.2"
-    jest-canvas-mock-compare: "npm:^0.1.0"
+    jest-canvas-mock-compare: "workspace:*"
     jest-environment-jsdom: "npm:29.7.0"
     jest-snapshot: "npm:^30.3.0"
     json-diff-kit: "npm:1.0.35"
@@ -4419,7 +4419,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare@npm:^0.1.0, jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare":
+"jest-canvas-mock-compare@workspace:*, jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare":
   version: 0.0.0-use.local
   resolution: "jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare"
   dependencies:
