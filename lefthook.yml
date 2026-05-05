@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    typecheck:
+      run: yarn typecheck
+    format-check:
+      run: yarn format:check
+    lint:
+      run: yarn lint

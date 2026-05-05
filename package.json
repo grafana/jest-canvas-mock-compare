@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "name": "jest-canvas-mock-compare-monorepo",
+  "type": "module",
+  "packageManager": "yarn@4.11.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "changeset": "changeset",
+    "prepare": "lefthook install",
+    "canvas-compare": "yarn workspace jest-canvas-mock-compare-viewer dev",
+    "dev": "yarn workspace jest-canvas-mock-compare-viewer dev",
+    "build": "yarn workspace jest-canvas-mock-compare build && yarn workspace jest-canvas-mock-compare-viewer build",
+    "preview": "yarn workspace jest-canvas-mock-compare-viewer preview",
+    "typecheck": "yarn workspace jest-canvas-mock-compare typecheck && yarn workspace jest-canvas-mock-compare-viewer exec tsc -p tsconfig.app.json --noEmit && yarn workspace jest-canvas-mock-compare-viewer exec tsc -p tsconfig.node.json --noEmit",
+    "lint": "yarn workspace jest-canvas-mock-compare lint && yarn workspace jest-canvas-mock-compare-viewer lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "yarn workspace jest-canvas-mock-compare test && yarn workspace jest-canvas-mock-compare-viewer test",
+    "demo:install": "yarn --cwd demo install",
+    "demo:test": "yarn --cwd demo test",
+    "demo:viewer": "yarn --cwd demo viewer"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@eslint/js": "^9.39.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "eslint": "9.32.0",
+    "jest": "29.7.0",
+    "jest-canvas-mock": "^2.5.2",
+    "jest-environment-jsdom": "29.7.0",
+    "jest-snapshot": "29.7.0",
+    "lefthook": "^2.1.6",
+    "prettier": "^3.8.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "ts-jest": "29",
+    "typescript": "6.0.2",
+    "typescript-eslint": "^8.46.0",
+    "uplot": "^1.6.32"
+  }
+}

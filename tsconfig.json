@@ -1,0 +1,5 @@
+{
+  "files": [],
+  "exclude": ["demo"],
+  "references": [{ "path": "./packages/jest-canvas-mock-compare/tsconfig.json" }]
+}

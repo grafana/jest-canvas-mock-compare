@@ -1,0 +1,517 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Examples uPlot fails 1`] = `
+[
+  {
+    "props": {
+      "x": 0.5,
+      "y": 0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "value": "#ff0000",
+    },
+    "type": "strokeStyle",
+  },
+  {
+    "props": {
+      "value": "rgba(0, 0, 0, 0)",
+    },
+    "type": "fillStyle",
+  },
+  {
+    "props": {
+      "value": 1,
+    },
+    "type": "lineWidth",
+  },
+  {
+    "props": {},
+    "type": "save",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "height": 334,
+            "width": 326,
+            "x": 49.5,
+            "y": 16.5,
+          },
+          "type": "rect",
+        },
+      ],
+    },
+    "type": "clip",
+  },
+  {
+    "props": {
+      "path": [
+        {
+          "props": {
+            "x": 50,
+            "y": 322,
+          },
+          "type": "lineTo",
+        },
+        {
+          "props": {
+            "x": 213,
+            "y": 45,
+          },
+          "type": "lineTo",
+        },
+        {
+          "props": {
+            "x": 375,
+            "y": 322,
+          },
+          "type": "lineTo",
+        },
+      ],
+    },
+    "type": "stroke",
+  },
+  {
+    "props": {},
+    "type": "restore",
+  },
+  {
+    "props": {
+      "x": -0.5,
+      "y": -0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "x": 0.5,
+      "y": 0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "value": "#ffffff",
+    },
+    "type": "fillStyle",
+  },
+  {
+    "props": {},
+    "type": "save",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "height": 341,
+            "width": 333,
+            "x": 46,
+            "y": 13,
+          },
+          "type": "rect",
+        },
+      ],
+    },
+    "type": "clip",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "x": 52,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 50,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 215,
+            "y": 45,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 213,
+            "y": 45,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 377,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 375,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+      ],
+    },
+    "type": "fill",
+  },
+  {
+    "props": {
+      "path": [
+        {
+          "props": {
+            "x": 52,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 50,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 215,
+            "y": 45,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 213,
+            "y": 45,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 377,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 375,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+      ],
+    },
+    "type": "stroke",
+  },
+  {
+    "props": {},
+    "type": "restore",
+  },
+  {
+    "props": {
+      "x": -0.5,
+      "y": -0.5,
+    },
+    "type": "translate",
+  },
+]
+`;
+
+exports[`Examples uPlot passes 1`] = `
+[
+  {
+    "props": {
+      "x": 0.5,
+      "y": 0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "value": "#ff0000",
+    },
+    "type": "strokeStyle",
+  },
+  {
+    "props": {
+      "value": "rgba(0, 0, 0, 0)",
+    },
+    "type": "fillStyle",
+  },
+  {
+    "props": {
+      "value": 1,
+    },
+    "type": "lineWidth",
+  },
+  {
+    "props": {},
+    "type": "save",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "height": 334,
+            "width": 326,
+            "x": 49.5,
+            "y": 16.5,
+          },
+          "type": "rect",
+        },
+      ],
+    },
+    "type": "clip",
+  },
+  {
+    "props": {
+      "path": [
+        {
+          "props": {
+            "x": 50,
+            "y": 322,
+          },
+          "type": "lineTo",
+        },
+        {
+          "props": {
+            "x": 213,
+            "y": 45,
+          },
+          "type": "lineTo",
+        },
+        {
+          "props": {
+            "x": 375,
+            "y": 322,
+          },
+          "type": "lineTo",
+        },
+      ],
+    },
+    "type": "stroke",
+  },
+  {
+    "props": {},
+    "type": "restore",
+  },
+  {
+    "props": {
+      "x": -0.5,
+      "y": -0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "x": 0.5,
+      "y": 0.5,
+    },
+    "type": "translate",
+  },
+  {
+    "props": {
+      "value": "#ffffff",
+    },
+    "type": "fillStyle",
+  },
+  {
+    "props": {},
+    "type": "save",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "height": 341,
+            "width": 333,
+            "x": 46,
+            "y": 13,
+          },
+          "type": "rect",
+        },
+      ],
+    },
+    "type": "clip",
+  },
+  {
+    "props": {
+      "fillRule": "nonzero",
+      "path": [
+        {
+          "props": {
+            "x": 52,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 50,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 215,
+            "y": 45,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 213,
+            "y": 45,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 377,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 375,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+      ],
+    },
+    "type": "fill",
+  },
+  {
+    "props": {
+      "path": [
+        {
+          "props": {
+            "x": 52,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 50,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 215,
+            "y": 45,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 213,
+            "y": 45,
+          },
+          "type": "arc",
+        },
+        {
+          "props": {
+            "x": 377,
+            "y": 322,
+          },
+          "type": "moveTo",
+        },
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 2,
+            "startAngle": 0,
+            "x": 375,
+            "y": 322,
+          },
+          "type": "arc",
+        },
+      ],
+    },
+    "type": "stroke",
+  },
+  {
+    "props": {},
+    "type": "restore",
+  },
+  {
+    "props": {
+      "x": -0.5,
+      "y": -0.5,
+    },
+    "type": "translate",
+  },
+]
+`;

@@ -1,0 +1,75 @@
+{
+  "name": "jest-canvas-mock-compare-viewer",
+  "version": "0.1.0",
+  "description": "CLI and web UI for comparing Jest canvas snapshot payloads produced by jest-canvas-mock-compare.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "jest-canvas-mock-compare": "bin/cli.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "server",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "jest",
+    "canvas",
+    "snapshot",
+    "visual-regression",
+    "vite"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsup server/cli.ts --format esm --platform node --outDir dist --no-dts --silent --external jest-canvas-mock-compare/constants",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "lint": "eslint src",
+    "test": "jest --config jest.config.cjs",
+    "prepublishOnly": "yarn run build && yarn run test"
+  },
+  "dependencies": {
+    "connect": "^3.7.0",
+    "jest-canvas-mock-compare": "^0.1.0",
+    "json-diff-kit": "1.0.35",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.1.1",
+    "sirv": "^3.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/connect": "^3.4.38",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "29.7.0",
+    "jest-canvas-mock": "^2.5.2",
+    "jest-environment-jsdom": "29.7.0",
+    "jest-snapshot": "^30.3.0",
+    "ts-jest": "29",
+    "tsup": "^8.4.0",
+    "typescript": "6.0.2",
+    "typescript-eslint": "^8.46.0",
+    "uplot": "^1.6.32",
+    "vite": "^6.3.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "packageManager": "yarn@4.11.0"
+}

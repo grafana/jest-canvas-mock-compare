@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest an idea or improvement.
+title: '[Feature] '
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share context and goals so maintainers can evaluate the proposal.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What limitation or workflow are you trying to improve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like this to work? APIs, UX, or behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional — other approaches you thought about.
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Packages affected
+      description: Matcher (`jest-canvas-mock-compare`), viewer, or both?

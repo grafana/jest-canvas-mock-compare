@@ -1,0 +1,8 @@
+dist
+demo
+node_modules
+.yarn
+coverage
+*.snap
+pnpm-lock.yaml
+yarn.lock
