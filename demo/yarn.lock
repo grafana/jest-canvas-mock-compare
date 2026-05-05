@@ -744,7 +744,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^10.4.1":
+"@testing-library/dom@npm:10.4.1":
   version: 10.4.1
   resolution: "@testing-library/dom@npm:10.4.1"
   dependencies:
@@ -760,7 +760,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.9.1":
+"@testing-library/jest-dom@npm:6.9.1":
   version: 6.9.1
   resolution: "@testing-library/jest-dom@npm:6.9.1"
   dependencies:
@@ -774,7 +774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^16.3.2":
+"@testing-library/react@npm:16.3.2":
   version: 16.3.2
   resolution: "@testing-library/react@npm:16.3.2"
   dependencies:
@@ -883,7 +883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.14":
+"@types/jest@npm:29.5.14":
   version: 29.5.14
   resolution: "@types/jest@npm:29.5.14"
   dependencies:
@@ -904,7 +904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^25.6.0":
+"@types/node@npm:*, @types/node@npm:25.6.0":
   version: 25.6.0
   resolution: "@types/node@npm:25.6.0"
   dependencies:
@@ -2324,28 +2324,28 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jest-canvas-mock-compare-demo@workspace:."
   dependencies:
-    "@testing-library/dom": "npm:^10.4.1"
-    "@testing-library/jest-dom": "npm:^6.9.1"
-    "@testing-library/react": "npm:^16.3.2"
-    "@types/jest": "npm:^29.5.14"
-    "@types/node": "npm:^25.6.0"
+    "@testing-library/dom": "npm:10.4.1"
+    "@testing-library/jest-dom": "npm:6.9.1"
+    "@testing-library/react": "npm:16.3.2"
+    "@types/jest": "npm:29.5.14"
+    "@types/node": "npm:25.6.0"
     "@types/react": "npm:^19.1.2"
     "@types/react-dom": "npm:^19.1.2"
     jest: "npm:29.7.0"
-    jest-canvas-mock: "npm:^2.5.2"
-    jest-canvas-mock-compare: "npm:^0.0.1"
-    jest-canvas-mock-compare-viewer: "npm:^0.0.1"
+    jest-canvas-mock: "npm:2.5.2"
+    jest-canvas-mock-compare: "npm:0.0.1"
+    jest-canvas-mock-compare-viewer: "npm:0.0.1"
     jest-environment-jsdom: "npm:29.7.0"
     jest-snapshot: "npm:29.7.0"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    ts-jest: "npm:29"
+    react: "npm:19.2.5"
+    react-dom: "npm:19.2.5"
+    ts-jest: "npm:29.4.9"
     typescript: "npm:6.0.2"
-    uplot: "npm:^1.6.32"
+    uplot: "npm:1.6.32"
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare-viewer@npm:^0.0.1":
+"jest-canvas-mock-compare-viewer@npm:0.0.1":
   version: 0.0.1
   resolution: "jest-canvas-mock-compare-viewer@npm:0.0.1"
   dependencies:
@@ -2362,9 +2362,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare::locator=jest-canvas-mock-compare-demo%40workspace%3A.":
+"jest-canvas-mock-compare@npm:0.0.1":
   version: 0.0.1
-  resolution: "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare#../packages/jest-canvas-mock-compare::hash=30f8a8&locator=jest-canvas-mock-compare-demo%40workspace%3A."
+  resolution: "jest-canvas-mock-compare@npm:0.0.1"
   peerDependencies:
     jest: ">=29"
     jest-canvas-mock: ">=2.5"
@@ -2376,11 +2376,11 @@ __metadata:
       optional: false
     jest-snapshot:
       optional: false
-  checksum: 10c0/3b62f69a2b84d641a78f7a671fd364daa6764bfd098fa001157f2cb13f52fa42fdbe6bbaceab18cda833f000779cda237667d397defb4e43cee7e0530cbbab35
+  checksum: 10c0/d5b0307124a34827c44be7a596231a5a1325693128b3db9e9f54f9b2a20e27c1fddd94b346cf0224f84210ebf03262042f48bb8afd9bb37ca158ba84224d50fe
   languageName: node
   linkType: hard
 
-"jest-canvas-mock@npm:^2.5.2":
+"jest-canvas-mock@npm:2.5.2":
   version: 2.5.2
   resolution: "jest-canvas-mock@npm:2.5.2"
   dependencies:
@@ -3521,7 +3521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.1.0":
+"react-dom@npm:19.2.5, react-dom@npm:^19.1.0":
   version: 19.2.5
   resolution: "react-dom@npm:19.2.5"
   dependencies:
@@ -3555,7 +3555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.1.0":
+"react@npm:19.2.5, react@npm:^19.1.0":
   version: 19.2.5
   resolution: "react@npm:19.2.5"
   checksum: 10c0/4b5f231dbef92886f602533c9ce3bde04d99f0e71dfb5d794c43e02726efaad0421c08688f75fc98a6d6e1dc017372e1af7abbfecdc86a79968f461675931a7a
@@ -3982,7 +3982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:29":
+"ts-jest@npm:29.4.9":
   version: 29.4.9
   resolution: "ts-jest@npm:29.4.9"
   dependencies:
@@ -4121,7 +4121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uplot@npm:^1.6.32":
+"uplot@npm:1.6.32":
   version: 1.6.32
   resolution: "uplot@npm:1.6.32"
   checksum: 10c0/4d9cdd5f53371656cfc178ea4ae0d8c9bdbe4c98c99df847926d7e5f5a5bcb8043561219da2979fee7616aabe3619d80fee093befdfe39aae65e6621284c39b1
