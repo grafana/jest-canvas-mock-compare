@@ -26,9 +26,8 @@
     "vite"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5173 --strictPort",
     "build": "vite build && tsup server/cli.ts --format esm --platform node --outDir dist --no-dts --silent --external jest-canvas-mock-compare/constants",
-    "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "lint": "eslint src",
     "test": "jest --config jest.config.cjs",

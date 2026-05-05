@@ -13,7 +13,6 @@
     "canvas-compare": "yarn workspace jest-canvas-mock-compare-viewer dev",
     "dev": "yarn workspace jest-canvas-mock-compare-viewer dev",
     "build": "yarn workspace jest-canvas-mock-compare build && yarn workspace jest-canvas-mock-compare-viewer build",
-    "preview": "yarn workspace jest-canvas-mock-compare-viewer preview",
     "typecheck": "yarn workspace jest-canvas-mock-compare typecheck && yarn workspace jest-canvas-mock-compare-viewer exec tsc -p tsconfig.app.json --noEmit && yarn workspace jest-canvas-mock-compare-viewer exec tsc -p tsconfig.node.json --noEmit",
     "lint": "yarn workspace jest-canvas-mock-compare lint && yarn workspace jest-canvas-mock-compare-viewer lint",
     "format": "prettier --write .",
