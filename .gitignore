@@ -1,21 +1,13 @@
+# Build
 dist
 node_modules
-**/.jest-canvas-mock-compare/*.json
 tsconfig.app.tsbuildinfo
-.idea
-.idea/*
 
-# Allow sharing a small VS Code/Jest baseline; ignore other IDE cruft under .vscode/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/settings.json
-
+# Yarn
 **/.yarn/cache
 **/.yarn/unplugged
 **/.yarn/build-state.yml
 **/.yarn/install-state.gz
-.pnp.*
 
 # Editor junk
 *.sublime-workspace
@@ -29,4 +21,9 @@ tsconfig.app.tsbuildinfo
 .cursor/
 .devcontainer/
 .claude/
+.idea
+.idea/*
+.vscode/*
+
+# Packaging
 package*.tgz
