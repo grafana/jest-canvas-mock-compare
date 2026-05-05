@@ -61,7 +61,7 @@
     "jest-snapshot": "^30.3.0",
     "ts-jest": "29",
     "tsup": "^8.4.0",
-    "typescript": "6.0.2",
+    "typescript": "6.0.3",
     "typescript-eslint": "^8.46.0",
     "uplot": "^1.6.32",
     "vite": "^6.3.4"
