@@ -30,14 +30,14 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - run: node -v && npm -v
-
       - name: Setup Node.js
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
-          node-version: 22
+          node-version: '24'
           cache: yarn
           registry-url: https://registry.npmjs.org
+
+      - run: node -v && npm -v
 
       - name: Install dependencies
         run: yarn install --immutable
