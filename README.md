@@ -15,8 +15,13 @@ Licensed under [AGPL-3.0-only](./LICENSE).
 Install the matcher in the project where you run Jest:
 
 ```bash
-npm install --save-dev jest-canvas-mock-compare jest-canvas-mock
-yarn add --D jest-canvas-mock-compare jest-canvas-mock
+npm install --save-dev jest-canvas-mock-compare
+```
+
+or
+
+```bash
+yarn add --D jest-canvas-mock-compare
 ```
 
 Register matchers once [in Jest setup file](https://jestjs.io/docs/configuration):

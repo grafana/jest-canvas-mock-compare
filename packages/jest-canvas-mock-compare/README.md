@@ -9,7 +9,13 @@ Jest matchers that compare [jest-canvas-mock](https://www.npmjs.com/package/jest
 Requires Node.js 20+.
 
 ```bash
-npm install --save-dev jest-canvas-mock-compare jest-canvas-mock jest
+npm install --save-dev jest-canvas-mock-compare
+```
+
+or
+
+```bash
+yarn add --D jest-canvas-mock-compare
 ```
 
 Peer dependencies: `jest` >= 29, `jest-canvas-mock` >= 2.5, `jest-snapshot` >= 29.

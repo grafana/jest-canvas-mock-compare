@@ -12,10 +12,16 @@ Requires Node.js 20+.
 npm install --save-dev jest-canvas-mock-compare-viewer
 ```
 
+or
+
+```bash
+yarn add --D jest-canvas-mock-compare-viewer
+```
+
 You can run the CLI without installing the package in your project (the published binary name is `jest-canvas-mock-compare`):
 
 ```bash
-npx --package jest-canvas-mock-compare-viewer jest-canvas-mock-compare
+npx jest-canvas-mock-compare
 ```
 
 ## CLI
