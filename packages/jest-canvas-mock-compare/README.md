@@ -35,6 +35,10 @@ expect(removeCanvasTransforms(actualEvents)).toMatchCanvasSnapshot(expectedEvent
 
 To make the `toMatchCanvasSnapshot` jest expect extension available across an entire repo, extend the jest matchers in your global [Jest setup file](https://jestjs.io/docs/configuration).
 
+### Environment variables
+
+GEN_CANVAS_OUTPUT_ON_PASS: will force passed tests to emit payload files
+
 ### Public exports
 
 - `matchers` — pass to `expect.extend(matchers)` to add `toMatchCanvasSnapshot`.
@@ -43,14 +47,14 @@ To make the `toMatchCanvasSnapshot` jest expect extension available across an en
 
 ### Payload location and viewer link
 
-On mismatch (or when **`GEN_CANVAS_OUTPUT_ON_PASS`** is set), the matcher writes JSON under **`{jest rootDir}/.jest-canvas-mock-compare/`**. It prints a viewer URL with **`file`** and **`payloadRoot`** so [`jest-canvas-mock-compare-viewer`](https://www.npmjs.com/package/jest-canvas-mock-compare-viewer) can load that directory. The base URL is always `http://localhost:5173/`.
+On mismatch, the matcher writes JSON under **`{jest rootDir}/.jest-canvas-mock-compare/`**. It prints a viewer URL with **`file`** and **`payloadRoot`** so [`jest-canvas-mock-compare-viewer`](https://www.npmjs.com/package/jest-canvas-mock-compare-viewer) can load that directory. The base URL is always `http://localhost:5173/`.
 
 In **plain Node** (for example the viewer CLI), import **`jest-canvas-mock-compare/constants`** for **`DEFAULT_COMPARE_PAYLOAD_DIRECTORY`** only. Importing the package root loads **`jest-canvas-mock`**, which expects Jest globals and fails outside a test run.
 
 ### CI
 
 This library does not output anything when ran in CI (process.env.CI) and behaves exactly like a regular snapshot test. We're currently assuming that
-If you are experiencing CI specific flake and would like better tooling (i.e. dump) please open an issue in this repo and we'll
+If you are experiencing CI specific flake and would like better support for debugging failures in CI please open an issue in this repo.
 
 ## Changelog
 
