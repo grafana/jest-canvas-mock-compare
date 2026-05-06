@@ -2376,8 +2376,8 @@ __metadata:
     "@types/react-dom": "npm:^19.1.2"
     jest: "npm:30.3.0"
     jest-canvas-mock: "npm:^2.5.2"
-    jest-canvas-mock-compare: "npm:0.0.2"
-    jest-canvas-mock-compare-viewer: "npm:0.0.2"
+    jest-canvas-mock-compare: "npm:0.0.3"
+    jest-canvas-mock-compare-viewer: "npm:0.0.4"
     jest-environment-jsdom: "npm:30.3.0"
     jest-snapshot: "npm:30.3.0"
     react: "npm:^19.1.0"
@@ -2388,12 +2388,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare-viewer@npm:0.0.2":
-  version: 0.0.2
-  resolution: "jest-canvas-mock-compare-viewer@npm:0.0.2"
+"jest-canvas-mock-compare-viewer@npm:0.0.4":
+  version: 0.0.4
+  resolution: "jest-canvas-mock-compare-viewer@npm:0.0.4"
   dependencies:
     connect: "npm:^3.7.0"
-    jest-canvas-mock-compare: "workspace:*"
+    jest-canvas-mock-compare: "npm:^0.0.3"
     json-diff-kit: "npm:1.0.35"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -2401,13 +2401,13 @@ __metadata:
     sirv: "npm:^3.0.0"
   bin:
     jest-canvas-mock-compare: bin/cli.js
-  checksum: 10c0/2fb45a0d07ffa32a3ec9cfc1224575cc6617fad6aa61167e0437646fd2098de6427de76105b2fc72ba32055cc555111e31e817c7928e4644e8cb1f3066049b14
+  checksum: 10c0/9dce3b4b237d4a8697eccdc0152fe983c441501e6ce686eb4adb5f795f21e300f62bd2b64f463486c7a881302c871a5bb6292d3d9252e276303d68fa9447728c
   languageName: node
   linkType: hard
 
-"jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare::locator=jest-canvas-mock-compare-demo%40workspace%3A.":
-  version: 0.0.2
-  resolution: "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare#../packages/jest-canvas-mock-compare::hash=96fef1&locator=jest-canvas-mock-compare-demo%40workspace%3A."
+"jest-canvas-mock-compare@npm:0.0.3, jest-canvas-mock-compare@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "jest-canvas-mock-compare@npm:0.0.3"
   peerDependencies:
     jest: ">=29"
     jest-canvas-mock: ">=2.5"
@@ -2419,7 +2419,7 @@ __metadata:
       optional: false
     jest-snapshot:
       optional: false
-  checksum: 10c0/1d0912177b4e0a32ce516f14987bc284d2065b1d69f0a658fc9739666270ef910e7b8a9713feec575365e6dfed97fa15d11d7ddd253bb6759026504feeda47e1
+  checksum: 10c0/c43b782aaf9982c598ced28f42f0a136c1374792c83420c2162cf8507ec9091361d274eee355ec4992a034a56dc63a536520734f30d18d0c6cdc1f65541a4033
   languageName: node
   linkType: hard
 
