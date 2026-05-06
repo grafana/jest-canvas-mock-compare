@@ -1,7 +1,6 @@
 ## Do not (will “re-wed” the demo to the monorepo)
 
 - Add `demo` to the **repository root** `workspaces` array — the demo must stay a standalone Yarn project with its own `yarn install` / `yarn.lock`.
-- Use **`workspace:`** protocol dependencies in this folder’s `package.json` (e.g. `workspace:^`). Use **`file:../packages/…`** while packages are unpublished, or published semver when this example is copied elsewhere.
 - Drop **devDependencies** here and assume packages come from the monorepo root `node_modules` hoisting.
 
 ## Do

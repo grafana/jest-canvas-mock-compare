@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "connect": "^3.7.0",
-    "jest-canvas-mock-compare": "workspace:*",
+    "jest-canvas-mock-compare": "^0.0.3",
     "json-diff-kit": "1.0.35",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

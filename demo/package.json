@@ -20,8 +20,8 @@
     "@types/react-dom": "^19.1.2",
     "jest": "30.3.0",
     "jest-canvas-mock": "^2.5.2",
-    "jest-canvas-mock-compare": "0.0.2",
-    "jest-canvas-mock-compare-viewer": "0.0.2",
+    "jest-canvas-mock-compare": "0.0.3",
+    "jest-canvas-mock-compare-viewer": "0.0.3",
     "jest-environment-jsdom": "30.3.0",
     "jest-snapshot": "30.3.0",
     "react": "^19.1.0",
@@ -29,8 +29,5 @@
     "ts-jest": "29",
     "typescript": "6.0.3",
     "uplot": "^1.6.32"
-  },
-  "resolutions": {
-    "jest-canvas-mock-compare": "file:../packages/jest-canvas-mock-compare"
   }
 }
