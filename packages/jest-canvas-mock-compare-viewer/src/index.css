@@ -31,36 +31,6 @@
   font-weight: 600;
 }
 
-.compare-paste-label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-top: 1rem;
-}
-
-.compare-paste {
-  font-family: ui-monospace, monospace;
-  font-size: 12px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #c8d1df;
-  border-radius: 6px;
-  padding: 0.6rem 0.7rem;
-  background: #fff;
-}
-
-.compare-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-  margin-top: 0.75rem;
-}
-
-.compare-file-label input[type='file'] {
-  margin-left: 0.35rem;
-}
-
 .compare-file-list {
   display: flex;
   flex-direction: column;
@@ -83,6 +53,11 @@
   cursor: pointer;
   align-items: center;
   justify-content: space-between;
+
+  &.is-selected {
+    border-color: #4c8bf5;
+    background: #eef4ff;
+  }
 }
 
 .compare-file-item-header {
@@ -100,11 +75,6 @@
 .compare-file-modified {
   font-size: 11px;
   color: #5f6b7d;
-}
-
-.compare-file-item.is-selected {
-  border-color: #4c8bf5;
-  background: #eef4ff;
 }
 
 .compare-title-row {
@@ -252,10 +222,9 @@
   top: 0;
   opacity: 0;
   pointer-events: none;
-}
-
-.diff-overlay-canvas.is-visible {
-  opacity: 0.55;
+  &.is-visible {
+    opacity: 0.55;
+  }
 }
 
 .overlay-toggle-btn {
@@ -267,6 +236,11 @@
   background: #f8f9fc;
   color: #334155;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .plot-action-wrap {
@@ -287,19 +261,6 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
-}
-
-.overlay-toggle-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.compare-empty-diff {
-  min-height: 2.25rem;
-  display: flex;
-  align-items: center;
-  color: #5f6b7d;
-  font-size: 13px;
 }
 
 .diff-panel-wrap {
@@ -373,11 +334,11 @@
   font-size: 12px;
 }
 
-.accept-baseline-output summary {
-  cursor: pointer;
-  color: #334155;
-  font-weight: 600;
-}
+/*.accept-baseline-output summary {*/
+/*  cursor: pointer;*/
+/*  color: #334155;*/
+/*  font-weight: 600;*/
+/*}*/
 
 .accept-baseline-command,
 .accept-baseline-stdout,
@@ -432,10 +393,10 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
-}
 
-.jest-output-modal::backdrop {
-  background: rgba(15, 23, 42, 0.45);
+  &::backdrop {
+    background: rgba(15, 23, 42, 0.45);
+  }
 }
 
 .jest-output-modal-inner {
@@ -453,13 +414,6 @@
   border-radius: 10px 10px 0 0;
   flex-shrink: 0;
   justify-content: space-between;
-}
-
-.jest-output-modal-title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #1e293b;
 }
 
 .jest-output-modal-close {
