@@ -2,7 +2,7 @@
 
 Minimal Jest + TypeScript reproduction for [`jest-canvas-mock-compare`](https://www.npmjs.com/package/jest-canvas-mock-compare).
 
-This folder is **not** a Yarn workspace of the parent monorepo: it has its own `package.json` and `yarn.lock`.
+This folder is **not** a Yarn workspace of the parent monorepo, this is a minimalistic example of how to use the package.
 
 ## Prerequisites
 
