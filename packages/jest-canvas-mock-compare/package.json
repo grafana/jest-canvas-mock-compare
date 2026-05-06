@@ -1,7 +1,7 @@
 {
   "name": "jest-canvas-mock-compare",
   "repository": {
-    "url": "https://github.com/grafana/jest-canvas-mock-compare"
+    "url": "git+https://github.com/grafana/jest-canvas-mock-compare.git"
   },
   "version": "0.0.2",
   "description": "Jest matchers for canvas snapshots with a visual diff workflow.",
