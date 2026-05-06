@@ -215,8 +215,7 @@ export function createDynamicPayloadMiddleware(): (
       return;
     }
 
-    // The frontend appends timestamp in an attempt to cache bust
-    const file = searchParams.get('file')?.trim().split('?')[0] ?? '';
+    const file = searchParams.get('file')?.trim() ?? '';
     if (!file) {
       sendJson(res, 400, { ok: false, error: 'Missing file' });
       return;

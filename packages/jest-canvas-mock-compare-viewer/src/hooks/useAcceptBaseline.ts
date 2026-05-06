@@ -71,12 +71,11 @@ export function useAcceptBaseline({ applyPayload, selectedFile, payloadRoot }: U
       return;
     }
     try {
-      const res = await fetch(
-        `${buildComparePayloadFetchUrl(basename, { payloadRoot })}?_=${encodeURIComponent(String(Date.now()))}`,
-        {
-          cache: 'no-store',
-        }
-      );
+      const fetchUrl = new URL(buildComparePayloadFetchUrl(basename, { payloadRoot }));
+      fetchUrl.searchParams.set('_', String(Date.now()));
+      const res = await fetch(fetchUrl.toString(), {
+        cache: 'no-store',
+      });
       if (!res.ok) {
         return;
       }
