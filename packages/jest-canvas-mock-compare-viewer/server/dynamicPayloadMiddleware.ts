@@ -124,14 +124,17 @@ export function readListedPayloadMeta(absolute: string): ListedPayloadMeta {
   try {
     const raw = readFileSync(absolute, 'utf8');
     const parsed: unknown = JSON.parse(raw);
-    if (parsed !== null && typeof parsed === 'object' && 'snapshotAssertionPassed' in parsed) {
-      const v = (parsed as { snapshotAssertionPassed?: unknown }).snapshotAssertionPassed;
-      if (typeof v === 'boolean') {
-        snapshotAssertionPassed = v;
-      }
+    if (
+      parsed !== null &&
+      typeof parsed === 'object' &&
+      'snapshotAssertionPassed' in parsed &&
+      typeof parsed.snapshotAssertionPassed === 'boolean'
+    ) {
+      snapshotAssertionPassed = parsed.snapshotAssertionPassed;
     }
   } catch {
     // Invalid JSON — still expose mtime
+    console.warn(`Failed to parse file: ${absolute}`);
   }
 
   return { snapshotAssertionPassed, modifiedMs };
@@ -161,6 +164,7 @@ export function createDynamicPayloadMiddleware(): (
       searchParams = u.searchParams;
     } catch {
       next();
+      console.warn(`Failed to parse URL: ${urlRaw}`);
       return;
     }
 
