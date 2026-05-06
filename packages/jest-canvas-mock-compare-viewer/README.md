@@ -18,7 +18,7 @@ or
 yarn add --D jest-canvas-mock-compare-viewer
 ```
 
-You can run the server without installing the package in your project (the published binary name is `jest-canvas-mock-compare`):
+You can run the server without installing the package in your project:
 
 ```bash
 npx jest-canvas-mock-compare-viewer

@@ -57,14 +57,12 @@ export function resolveReadablePayloadUnderRoot(payloadRootTrimmed: string, base
     rootRealpath.endsWith(path.sep) || rootRealpath.endsWith('\\') ? rootRealpath : `${rootRealpath}${path.sep}`;
   const inside = fileRealpath === rootRealpath || fileRealpath.startsWith(parentPrefix);
   if (!inside) {
-    console.warn('not inside', inside);
     return null;
   }
 
   try {
     const stFile = statSync(fileRealpath);
     if (!stFile.isFile()) {
-      console.warn('not file');
       return null;
     }
   } catch (e) {
