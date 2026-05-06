@@ -2375,16 +2375,16 @@ __metadata:
     "@types/react": "npm:19.2.14"
     "@types/react-dom": "npm:19.2.3"
     jest: "npm:30.3.0"
-    jest-canvas-mock: "npm:^2.5.2"
+    jest-canvas-mock: "npm:2.5.2"
     jest-canvas-mock-compare: "npm:0.0.4"
     jest-canvas-mock-compare-viewer: "npm:0.0.5"
     jest-environment-jsdom: "npm:30.3.0"
     jest-snapshot: "npm:30.3.0"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
-    ts-jest: "npm:29"
+    ts-jest: "npm:29.4.9"
     typescript: "npm:6.0.3"
-    uplot: "npm:^1.6.32"
+    uplot: "npm:1.6.32"
   languageName: unknown
   linkType: soft
 
@@ -2441,7 +2441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-canvas-mock@npm:^2.5.2":
+"jest-canvas-mock@npm:2.5.2":
   version: 2.5.2
   resolution: "jest-canvas-mock@npm:2.5.2"
   dependencies:
@@ -4041,7 +4041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:29":
+"ts-jest@npm:29.4.9":
   version: 29.4.9
   resolution: "ts-jest@npm:29.4.9"
   dependencies:
@@ -4247,7 +4247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uplot@npm:^1.6.32":
+"uplot@npm:1.6.32":
   version: 1.6.32
   resolution: "uplot@npm:1.6.32"
   checksum: 10c0/4d9cdd5f53371656cfc178ea4ae0d8c9bdbe4c98c99df847926d7e5f5a5bcb8043561219da2979fee7616aabe3619d80fee093befdfe39aae65e6621284c39b1
