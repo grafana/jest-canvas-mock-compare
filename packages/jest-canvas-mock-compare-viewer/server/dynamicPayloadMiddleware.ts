@@ -17,7 +17,12 @@ function endsWithFatalNotFound(err: unknown): boolean {
 
 /** PathTraversal-safe: basename must satisfy {@link isSafePayloadBasename}; result must lie under resolved root directory. */
 export function resolveReadablePayloadUnderRoot(payloadRootTrimmed: string, basename: string): string | null {
-  if (!payloadRootTrimmed || !isSafePayloadBasename(basename)) {
+  if (!payloadRootTrimmed) {
+    console.warn('Missing payload root', payloadRootTrimmed);
+    return null;
+  }
+  if (!isSafePayloadBasename(basename)) {
+    console.warn('Not safe payload', basename);
     return null;
   }
 
@@ -25,10 +30,12 @@ export function resolveReadablePayloadUnderRoot(payloadRootTrimmed: string, base
   try {
     const stRoot = statSync(payloadRootTrimmed);
     if (!stRoot.isDirectory()) {
+      console.warn('invalid directory', stRoot);
       return null;
     }
     rootRealpath = resolvedRealpath(path.resolve(payloadRootTrimmed));
   } catch (e) {
+    console.warn('failed to resolve', { payloadRootTrimmed, resolved: path.resolve(payloadRootTrimmed) });
     if (endsWithFatalNotFound(e)) {
       return null;
     }
@@ -40,6 +47,7 @@ export function resolveReadablePayloadUnderRoot(payloadRootTrimmed: string, base
     fileRealpath = resolvedRealpath(path.resolve(rootRealpath, basename));
   } catch (e) {
     if (endsWithFatalNotFound(e)) {
+      console.warn('failed to resolve', { rootRealpath, basename, e });
       return null;
     }
     throw e;
@@ -49,15 +57,18 @@ export function resolveReadablePayloadUnderRoot(payloadRootTrimmed: string, base
     rootRealpath.endsWith(path.sep) || rootRealpath.endsWith('\\') ? rootRealpath : `${rootRealpath}${path.sep}`;
   const inside = fileRealpath === rootRealpath || fileRealpath.startsWith(parentPrefix);
   if (!inside) {
+    console.warn('not inside', inside);
     return null;
   }
 
   try {
     const stFile = statSync(fileRealpath);
     if (!stFile.isFile()) {
+      console.warn('not file');
       return null;
     }
-  } catch {
+  } catch (e) {
+    console.warn('statSync failed', e);
     return null;
   }
 
@@ -206,7 +217,8 @@ export function createDynamicPayloadMiddleware(): (
       return;
     }
 
-    const file = searchParams.get('file')?.trim() ?? '';
+    // The frontend appends timestamp in an attempt to cache bust
+    const file = searchParams.get('file')?.trim().split('?')[0] ?? '';
     if (!file) {
       sendJson(res, 400, { ok: false, error: 'Missing file' });
       return;
@@ -214,6 +226,7 @@ export function createDynamicPayloadMiddleware(): (
 
     const absolute = resolveReadablePayloadUnderRoot(payloadRoot, file);
     if (!absolute) {
+      console.log('invalid file', { payloadRoot, file, absolute });
       sendJson(res, 404, { ok: false, error: 'Payload not found' });
       return;
     }

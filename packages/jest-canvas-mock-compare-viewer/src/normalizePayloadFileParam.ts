@@ -3,7 +3,7 @@ export function isSafePayloadBasename(name: string): boolean {
   if (!name || name.includes('/') || name.includes('\\') || name.includes('..')) {
     return false;
   }
-  return /^[\w.-]+\.json$/.test(name);
+  return /^[\w.-]+\.json/.test(name);
 }
 
 /**

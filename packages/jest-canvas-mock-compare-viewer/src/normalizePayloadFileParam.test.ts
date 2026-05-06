@@ -2,12 +2,12 @@ import { isSafePayloadBasename, normalizePayloadFileQueryParam } from './normali
 
 describe('isSafePayloadBasename', () => {
   it('accepts plain compare payload names', () => {
-    expect(isSafePayloadBasename('jest-canvas-compare-drawMarkers_events.json')).toBe(true);
+    expect(isSafePayloadBasename('jest-canvas-compare-drawMarkers_events.json?_=123456789')).toBe(true);
   });
 
   it('rejects path segments and traversal', () => {
-    expect(isSafePayloadBasename('../foo.json')).toBe(false);
-    expect(isSafePayloadBasename('a/b.json')).toBe(false);
+    expect(isSafePayloadBasename('../foo.json?_=123')).toBe(false);
+    expect(isSafePayloadBasename('a/b.json?_=123')).toBe(false);
   });
 });
 

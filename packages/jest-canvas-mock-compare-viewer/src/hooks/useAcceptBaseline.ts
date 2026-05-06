@@ -82,11 +82,13 @@ export function useAcceptBaseline({ applyPayload, selectedFile, payloadRoot }: U
       }
       const rawUnknown: unknown = await res.json();
       if (!isCanvasComparePayload(rawUnknown)) {
+        console.warn('canvas compare payload incorrect', rawUnknown);
         return;
       }
       applyPayload(rawUnknown, basename, { resetJestActions: false });
     } catch {
       // Ignore reload failures (missing file or invalid JSON).
+      console.warn('failed to apply payload', { basename });
     }
   }, [applyPayload, payloadRoot, selectedFile]);
 

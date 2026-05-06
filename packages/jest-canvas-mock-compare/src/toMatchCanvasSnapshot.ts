@@ -85,7 +85,7 @@ export function toMatchCanvasSnapshot(
       const compareUrl = buildCompareViewerUrl('http://localhost:5173/', publicBasename, payloadDir);
       // Use stderr so jest-fail-on-console (console.* hooks) does not treat this as a test failure
       process.stderr.write(
-        `To debug this diff visually, run the compare viewer (e.g. \`npx jest-canvas-mock-compare\`), then open:\n${compareUrl.toString()}\n(Payload written to ${fullPath})\n\n`
+        `To debug this diff visually, run the compare viewer (e.g. \`npx jest-canvas-mock-compare-viewer\`), then open:\n${compareUrl.toString()}\n(Payload written to ${fullPath})\n\n`
       );
     } catch (e) {
       console.warn(
