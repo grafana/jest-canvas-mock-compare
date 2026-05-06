@@ -40,6 +40,10 @@ Links look like:
 http://localhost:5173/?file=<basename>.json&payloadRoot=<url-encoded-abs-dir>
 ```
 
+### Limitations
+
+Permissions and other issues arise in the UI executed jest commands when running `npx jest-canvas-mock-compare-viewer` outside of the package root that contains the tests, so try running it in the parent directory of `.jest-canvas-mock-compare/` if issues arise.
+
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md).
