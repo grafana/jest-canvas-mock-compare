@@ -47,7 +47,7 @@ export function JestActionsButtons(props: JestActionsButtonsProps) {
         }
         onClick={props.onAcceptBaseline}
       >
-        {props.kind === 'running' && props.updateSnapshot ? 'Running jest -u…' : 'Accept actual (jest -u)'}
+        {props.kind === 'running' && props.updateSnapshot ? 'Running jest -u…' : 'Accept actual'}
       </button>
     </div>
   );

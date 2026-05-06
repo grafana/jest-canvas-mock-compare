@@ -1,54 +1,53 @@
 :root {
-  /* Layout */
-  --compare-gap: 12px;
+  color-scheme: dark;
 
   /* Surfaces */
-  --color-surface: #fff;
-  --color-surface-muted: #fbfcfe;
-  --color-surface-subtle: #f1f5f9;
-  --color-surface-button: #f8f9fc;
-  --color-surface-modal-header: #f8fafc;
-  --color-surface-code: #f1f5f9;
-  --color-surface-danger-soft: #fef2f2;
-  --color-surface-danger-wash: #fff5f5;
-  --color-surface-success-soft: #ecfdf5;
-  --color-surface-accept: #ffebee;
-  --color-surface-disabled: #f1f3f6;
+  --color-surface: #22272e;
+  --color-surface-muted: #161b22;
+  --color-surface-subtle: #2d333b;
+  --color-surface-button: #30363d;
+  --color-surface-modal-header: #21262d;
+  --color-surface-code: #161b22;
+  --color-surface-danger-soft: #3d2226;
+  --color-surface-danger-wash: #341a1f;
+  --color-surface-success-soft: #12261c;
+  --color-surface-accept: #3d2024;
+  --color-surface-disabled: #21262d;
 
   /* Borders */
-  --color-border: #d9dee7;
-  --color-border-strong: #c8d1df;
-  --color-border-light: #e2e8f0;
-  --color-border-accent: #4c8bf5;
-  --color-border-danger: #991b1b;
-  --color-border-danger-soft: #fca5a5;
-  --color-border-success: #86efac;
-  --color-border-accept: #b71c1c;
-  --color-border-stderr: #fecaca;
-  --color-border-emphasis: #64748b;
-  --color-border-control-muted: rgba(200, 209, 223, 0.95);
+  --color-border: #444c56;
+  --color-border-strong: #545d6a;
+  --color-border-light: #373e47;
+  --color-border-accent: #58a6ff;
+  --color-border-danger: #f85149;
+  --color-border-danger-soft: #da6363;
+  --color-border-success: #3fb950;
+  --color-border-accept: #ff7b72;
+  --color-border-stderr: #b62324;
+  --color-border-emphasis: #8b949e;
+  --color-border-control-muted: rgba(84, 93, 106, 0.9);
 
   /* Text */
-  --color-text: #334155;
-  --color-text-secondary: #5f6b7d;
-  --color-text-muted: #64748b;
-  --color-text-label: #44546a;
-  --color-text-subdued: #475569;
-  --color-text-on-dark-hover: #1e293b;
-  --color-text-danger: #c62828;
-  --color-text-danger-strong: #991b1b;
-  --color-text-danger-action: #b71c1c;
-  --color-text-success: #2e7d32;
-  --color-text-pass: #166534;
+  --color-text: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  --color-text-label: #adbac7;
+  --color-text-subdued: #768390;
+  --color-text-on-dark-hover: #f0f6fc;
+  --color-text-danger: #ff7b72;
+  --color-text-danger-strong: #ffa198;
+  --color-text-danger-action: #ff7b72;
+  --color-text-success: #56d364;
+  --color-text-pass: #3fb950;
 
   /* Accents & fills */
-  --color-accent-surface: #eef4ff;
-  --color-control-surface-muted: rgba(248, 249, 252, 0.95);
+  --color-accent-surface: rgba(88, 166, 255, 0.16);
+  --color-control-surface-muted: rgba(48, 54, 61, 0.92);
 
   /* Modal / overlay */
-  --color-backdrop: rgba(15, 23, 42, 0.45);
-  --shadow-modal: 0 12px 40px rgba(15, 23, 42, 0.25);
-  --color-close-hover-bg: #e2e8f0;
+  --color-backdrop: rgba(1, 4, 9, 0.72);
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --color-close-hover-bg: #30363d;
 
   /* Radii */
   --radius-xs: 4px;
@@ -62,6 +61,23 @@
   --opacity-disabled-soft: 0.45;
   --opacity-disabled: 0.5;
   --opacity-disabled-strong: 0.55;
+
+  /* Spacing */
+  --default-spacing: 0.75rem;
+
+  /* Layout */
+  --compare-gap: var(--default-spacing);
+}
+
+html,
+body {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
 }
 
 .overlay {
@@ -77,10 +93,15 @@
   flex-wrap: wrap;
   column-gap: var(--compare-gap);
   row-gap: var(--compare-gap);
+  padding: var(--default-spacing);
 }
 
 .wrap--actual-only {
   flex-wrap: nowrap;
+}
+
+.compare-hint {
+  margin: 0;
 }
 
 .compare-blocked {
@@ -148,6 +169,8 @@
   align-items: center;
   gap: 0.65rem 1rem;
   margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 0.75rem;
 }
 
 .compare-title-leading {
@@ -178,7 +201,7 @@
   border: 1px solid var(--color-border-danger);
   border-radius: var(--radius-sm);
   background: var(--color-surface-danger-soft);
-  color: var(--color-text-danger-strong);
+  color: var(--color-text);
   cursor: pointer;
 
   &:disabled {
@@ -367,8 +390,8 @@
   border: 1px solid var(--color-border-accept);
   border-radius: var(--radius-sm);
   background: var(--color-surface-accept);
-  color: var(--color-text-danger-action);
   cursor: pointer;
+  color: var(--color-text);
   &:disabled {
     opacity: var(--opacity-disabled-strong);
     cursor: not-allowed;
@@ -398,12 +421,6 @@
   margin-top: 0.65rem;
   font-size: 12px;
 }
-
-/*.accept-baseline-output summary {*/
-/*  cursor: pointer;*/
-/*  color: #334155;*/
-/*  font-weight: 600;*/
-/*}*/
 
 .accept-baseline-command,
 .accept-baseline-stdout,

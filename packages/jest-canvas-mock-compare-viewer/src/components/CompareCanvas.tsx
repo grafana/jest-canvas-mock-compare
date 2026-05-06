@@ -231,23 +231,25 @@ export const CompareCanvas = ({ defaultWidth = FALLBACK_CANVAS_WIDTH, defaultHei
 
   if (view.kind === 'blocked') {
     return (
-      <div className="compare-blocked">
-        {view.error ? (
-          <p className="compare-error" role="alert">
-            {view.error}
-          </p>
-        ) : null}
-        {view.hint ? <p>{view.hint}</p> : null}
-        <TestList
-          payloadRoot={payloadRoot}
-          fetchKind={remoteFetchKind}
-          indexOrderedPayloadFiles={indexOrderedPayloadFiles}
-          testListLength={effectiveBasenames.length}
-          selectedFile={selectedFile}
-          fileSnapshotAssertionPassed={fileSnapshotAssertionPassed}
-          fileModifiedLabels={fileModifiedLabels}
-          onSelectTest={(b) => setTest(b, 'push')}
-        />
+      <div className="wrap">
+        <div className="compare-blocked">
+          {view.error ? (
+            <p className="compare-error" role="alert">
+              {view.error}
+            </p>
+          ) : null}
+          {view.hint ? <p className={'compare-hint'}>{view.hint}</p> : null}
+          <TestList
+            payloadRoot={payloadRoot}
+            fetchKind={remoteFetchKind}
+            indexOrderedPayloadFiles={indexOrderedPayloadFiles}
+            testListLength={effectiveBasenames.length}
+            selectedFile={selectedFile}
+            fileSnapshotAssertionPassed={fileSnapshotAssertionPassed}
+            fileModifiedLabels={fileModifiedLabels}
+            onSelectTest={(b) => setTest(b, 'push')}
+          />
+        </div>
       </div>
     );
   }
