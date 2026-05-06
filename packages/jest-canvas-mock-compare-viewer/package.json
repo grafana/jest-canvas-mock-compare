@@ -5,7 +5,7 @@
     "url": "https://github.com/grafana/jest-canvas-mock-compare.git",
     "directory": "packages/jest-canvas-mock-compare-viewer"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI and web UI for comparing Jest canvas snapshot payloads produced by jest-canvas-mock-compare.",
   "license": "AGPL-3.0-only",
   "type": "module",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "connect": "^3.7.0",
-    "jest-canvas-mock-compare": "workspace:*",
+    "jest-canvas-mock-compare": "^0.0.3",
     "json-diff-kit": "1.0.35",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
