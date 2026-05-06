@@ -17,7 +17,7 @@ function viewerPackageRoot(): string {
   return path.resolve(__dirname, '..');
 }
 
-export function startViewerCli(): void {
+export function startViewer(): void {
   const cwd = process.cwd();
   const pkgRoot = viewerPackageRoot();
   const spaDist = path.join(pkgRoot, 'dist');
@@ -41,4 +41,4 @@ export function startViewerCli(): void {
   });
 }
 
-startViewerCli();
+startViewer();

@@ -1,6 +1,5 @@
 {
   "license": "AGPL-3.0-only",
-  "version": "0.0.1",
   "repository": "github:grafana/jest-canvas-mock-compare",
   "name": "jest-canvas-mock-compare-monorepo",
   "type": "module",

@@ -1,6 +1,6 @@
 # jest-canvas-mock-compare-viewer
 
-CLI and static web UI for visualizing canvas snapshot diffs produced by [`jest-canvas-mock-compare`](https://www.npmjs.com/package/jest-canvas-mock-compare).
+Static web UI for visualizing canvas snapshot diffs produced by [`jest-canvas-mock-compare`](https://www.npmjs.com/package/jest-canvas-mock-compare).
 
 **License:** [AGPL-3.0-only](./LICENSE)
 
@@ -18,7 +18,7 @@ or
 yarn add --D jest-canvas-mock-compare-viewer
 ```
 
-You can run the CLI without installing the package in your project (the published binary name is `jest-canvas-mock-compare`):
+You can run the server without installing the package in your project (the published binary name is `jest-canvas-mock-compare`):
 
 ```bash
 npx jest-canvas-mock-compare
