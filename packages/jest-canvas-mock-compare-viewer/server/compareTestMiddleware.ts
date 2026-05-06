@@ -69,6 +69,19 @@ function capStream(chunk: Buffer, out: string): string {
   return next;
 }
 
+/**
+ * Wrap in single quotes for sh/bash/zsh copy-paste so metacharacters in
+ * `--testNamePattern` (spaces, ^, $, parens, etc.) are not interpreted by the shell.
+ */
+export function shellSingleQuoteForSh(arg: string): string {
+  return `'${arg.replace(/'/g, "'\\''")}'`;
+}
+
+/** Readable CLI string for the UI; must match argv passed to `spawn`. */
+export function formatNpxJestCommand(spawnArgs: string[]): string {
+  return ['npx', ...spawnArgs].map(shellSingleQuoteForSh).join(' ');
+}
+
 function directoryHasJestConfig(dir: string): boolean {
   for (const name of JEST_CONFIG_FILENAMES) {
     if (existsSync(join(dir, name))) {
@@ -173,7 +186,7 @@ export function createCompareTestMiddleware() {
     const jestCwd = resolveJestCwdForTestFile(absTestPath, fallbackCwd);
     const jestArgv = buildJestArgv(testName, updateSnapshot, absTestPath);
     const spawnArgs = ['jest', ...jestArgv];
-    const command = ['npx', ...spawnArgs].join(' ');
+    const command = formatNpxJestCommand(spawnArgs);
 
     const child = spawn('npx', spawnArgs, {
       cwd: jestCwd,
