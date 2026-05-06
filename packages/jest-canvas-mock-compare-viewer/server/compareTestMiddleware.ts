@@ -178,6 +178,7 @@ export function createCompareTestMiddleware() {
     const child = spawn('npx', spawnArgs, {
       cwd: jestCwd,
       env: {
+        ...process.env,
         NODE_ENV: 'test',
         GEN_CANVAS_OUTPUT_ON_PASS: '1',
       },
@@ -208,8 +209,14 @@ export function createCompareTestMiddleware() {
         child.kill('SIGTERM');
         finish(-1);
       }, JEST_TIMEOUT_MS);
-      child.once('close', (code) => finish(code ?? -1));
-      child.once('error', () => finish(-1));
+
+      child.once('close', (code) => {
+        return finish(code ?? -1);
+      });
+      child.once('error', (err) => {
+        console.error('failed to run jest command', err);
+        return finish(-1);
+      });
     });
 
     const ok = exitCode === 0;
