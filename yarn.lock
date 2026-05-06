@@ -4348,7 +4348,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare@npm:^0.0.3, jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare":
+"jest-canvas-mock-compare@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "jest-canvas-mock-compare@npm:0.0.3"
+  peerDependencies:
+    jest: ">=29"
+    jest-canvas-mock: ">=2.5"
+    jest-snapshot: ">=29"
+  peerDependenciesMeta:
+    jest:
+      optional: false
+    jest-canvas-mock:
+      optional: false
+    jest-snapshot:
+      optional: false
+  checksum: 10c0/c43b782aaf9982c598ced28f42f0a136c1374792c83420c2162cf8507ec9091361d274eee355ec4992a034a56dc63a536520734f30d18d0c6cdc1f65541a4033
+  languageName: node
+  linkType: hard
+
+"jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare":
   version: 0.0.0-use.local
   resolution: "jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare"
   dependencies:
