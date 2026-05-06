@@ -1,7 +1,9 @@
 {
   "name": "jest-canvas-mock-compare-viewer",
   "repository": {
-    "url": "https://github.com/grafana/jest-canvas-mock-compare"
+    "type": "git",
+    "url": "https://github.com/grafana/jest-canvas-mock-compare.git",
+    "directory": "packages/jest-canvas-mock-compare-viewer"
   },
   "version": "0.0.2",
   "description": "CLI and web UI for comparing Jest canvas snapshot payloads produced by jest-canvas-mock-compare.",
