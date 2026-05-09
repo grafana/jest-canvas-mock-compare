@@ -24,8 +24,8 @@
     "jest-canvas-mock-compare-viewer": "0.0.5",
     "jest-environment-jsdom": "30.3.0",
     "jest-snapshot": "30.3.0",
-    "react": "19.2.5",
-    "react-dom": "19.2.5",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "ts-jest": "29",
     "typescript": "6.0.3",
     "uplot": "1.6.32"
