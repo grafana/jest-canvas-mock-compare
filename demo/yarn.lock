@@ -2377,7 +2377,7 @@ __metadata:
     jest: "npm:30.3.0"
     jest-canvas-mock: "npm:^2.5.2"
     jest-canvas-mock-compare: "npm:0.0.4"
-    jest-canvas-mock-compare-viewer: "npm:0.0.5"
+    jest-canvas-mock-compare-viewer: "npm:0.0.7"
     jest-environment-jsdom: "npm:30.3.0"
     jest-snapshot: "npm:30.3.0"
     react: "npm:19.2.5"
@@ -2388,9 +2388,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock-compare-viewer@npm:0.0.5":
-  version: 0.0.5
-  resolution: "jest-canvas-mock-compare-viewer@npm:0.0.5"
+"jest-canvas-mock-compare-viewer@npm:0.0.7":
+  version: 0.0.7
+  resolution: "jest-canvas-mock-compare-viewer@npm:0.0.7"
   dependencies:
     connect: "npm:^3.7.0"
     jest-canvas-mock-compare: "npm:^0.0.3"
@@ -2401,7 +2401,7 @@ __metadata:
     sirv: "npm:^3.0.0"
   bin:
     jest-canvas-mock-compare: bin/cli.js
-  checksum: 10c0/10264b80e11a54d32c87a7f436c822668b6ab79064203d117248fa3a2edc2f00d6d7442d5c90d344d91a01e365c08f83e733ba04da2085c9363fb89170b89848
+  checksum: 10c0/c63900f443341fa2f993d9265d4af5f9fef667d1e5047192c3809854ee77616f71d0c93fda542053903ea3addfd012cfe3874400685bbf90f3c1945b433d7277
   languageName: node
   linkType: hard
 
