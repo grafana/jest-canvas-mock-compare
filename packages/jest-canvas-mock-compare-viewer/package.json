@@ -67,7 +67,7 @@
     "ts-jest": "29",
     "tsup": "^8.4.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "^8.46.0",
+    "typescript-eslint": "^8.59.2",
     "uplot": "^1.6.32",
     "vite": "^6.3.4"
   },
