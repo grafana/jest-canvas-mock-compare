@@ -1,18 +1,46 @@
 import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
 
 /**
+ * Per-replay state for pairing gradient creation events with subsequent `strokeStyle`/`fillStyle`
+ * assignments. `CanvasGradient` instances don't survive snapshot serialization (stops live on a
+ * jest mock; geometry is recorded as a separate `createLinearGradient` event), so the matcher
+ * sends each gradient as a `{ __kind: 'CanvasGradient', stops }` placeholder. We rebuild a real
+ * `CanvasGradient` here by FIFO-pairing each placeholder with the next pending geometry.
+ */
+type ReplayState = {
+  pendingGradients: CanvasGradient[];
+};
+
+type SerializedCanvasGradient = {
+  __kind: 'CanvasGradient';
+  stops: Array<[number, string]>;
+};
+
+function isSerializedCanvasGradient(value: unknown): value is SerializedCanvasGradient {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    (value as { __kind?: unknown }).__kind === 'CanvasGradient' &&
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    Array.isArray((value as { stops?: unknown }).stops)
+  );
+}
+
+/**
  * Converts jest-canvas-mock CanvasRenderingContext2DEvent[] to CanvasRenderingContext2D calls,
  * i.e. this will re-reapply the recorded canvas calls from the test execution against the actual canvas
  * @param data
  * @param ctx
  */
 export function eventsToCanvasScript(data: CanvasRenderingContext2DEvent[], ctx: CanvasRenderingContext2D) {
+  const state: ReplayState = { pendingGradients: [] };
   for (const ev of data) {
-    emitOne(ev, ctx);
+    emitOne(ev, ctx, state);
   }
 }
 
-function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingContext2D) {
+function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingContext2D, state: ReplayState) {
   const { type, props = {} } = event;
 
   switch (type) {
@@ -164,7 +192,24 @@ function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingConte
       return;
     }
     case 'fillStyle':
-    case 'strokeStyle':
+    case 'strokeStyle': {
+      const value = props.value;
+      if (isSerializedCanvasGradient(value)) {
+        // Pair this assignment with the next pending gradient geometry; fall back to a
+        // throwaway gradient if the stream is malformed so we still render *something*
+        // rather than silently coercing to black.
+        const gradient = state.pendingGradients.shift() ?? ctx.createLinearGradient(0, 0, 0, 0);
+        for (const [offset, color] of value.stops) {
+          gradient.addColorStop(offset, color);
+        }
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        (ctx as unknown as Record<string, unknown>)[type] = gradient;
+        return;
+      }
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      (ctx as unknown as Record<string, unknown>)[type] = value;
+      return;
+    }
     case 'globalAlpha':
     case 'globalCompositeOperation':
     case 'lineWidth':
@@ -188,10 +233,12 @@ function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingConte
       return;
     }
     case 'createLinearGradient':
-      ctx.createLinearGradient(props.x0, props.y0, props.x1, props.y1);
+      state.pendingGradients.push(ctx.createLinearGradient(props.x0, props.y0, props.x1, props.y1));
       return;
     case 'createRadialGradient':
-      ctx.createRadialGradient(props.x0, props.y0, props.r0, props.x1, props.y1, props.r1);
+      state.pendingGradients.push(
+        ctx.createRadialGradient(props.x0, props.y0, props.r0, props.x1, props.y1, props.r1)
+      );
       return;
     case 'createPattern':
       // Image source is not captured in the snapshot payload.

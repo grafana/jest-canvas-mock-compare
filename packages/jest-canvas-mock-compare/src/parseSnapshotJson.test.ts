@@ -19,4 +19,36 @@ describe('parseSnapshotJson', () => {
     const actual = `{"props":{"height":400,"width":400,"x":0,"y":0},"transform":[1,0,0,1,0,0],"type":"clearRect"}`;
     expect(parseSnapshotJson(actual)).toEqual(JSON.parse(actual));
   });
+
+  test('rewrites Jest pretty-print CanvasGradient values into the structured placeholder', () => {
+    const blob = `[
+  {
+    "props": {
+      "value": CanvasGradient {
+        "addColorStop": [MockFunction] {
+          "calls": [
+            [0, "#73BF69ff"],
+            [1, "#F2495Cff"],
+          ],
+          "results": [
+            { "type": "return", "value": undefined },
+            { "type": "return", "value": undefined },
+          ],
+        },
+      },
+    },
+    "type": "strokeStyle",
+  },
+]`;
+
+    const parsed = parseSnapshotJson(blob);
+    expect(parsed[0].type).toBe('strokeStyle');
+    expect(parsed[0].props.value).toEqual({
+      __kind: 'CanvasGradient',
+      stops: [
+        [0, '#73BF69ff'],
+        [1, '#F2495Cff'],
+      ],
+    });
+  });
 });

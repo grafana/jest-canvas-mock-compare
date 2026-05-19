@@ -28,11 +28,40 @@ function escapeInnerQuotesInDoubleQuotedPropertyLines(text: string): string {
 }
 
 /**
+ * Jest's default `pretty-format` renders a `CanvasGradient` instance (from `jest-canvas-mock`)
+ * as a class-tagged object with the mock function's `.calls` array nested inside, e.g.:
+ *
+ *   CanvasGradient {
+ *     "addColorStop": [MockFunction] {
+ *       "calls": [
+ *         [0, "#73BF69ff"],
+ *         [1, "#F2495Cff"],
+ *       ],
+ *       "results": [ ... ],
+ *     },
+ *   }
+ *
+ * That's not valid JSON. Rewrite it into the structured `{ __kind, stops }` placeholder used
+ * everywhere else so `JSON.parse` succeeds and the viewer can replay the gradient.
+ */
+function rewriteCanvasGradientPrettyPrint(text: string): string {
+  return text.replace(
+    /CanvasGradient\s*\{\s*"addColorStop":\s*\[MockFunction\]\s*\{\s*"calls":\s*(\[[\s\S]*?\])\s*,\s*"results":[\s\S]*?\}\s*,?\s*\}/g,
+    (_match, callsArrayText: string) => {
+      // `callsArrayText` is the stops array; it round-trips through JSON.parse after the
+      // outer cleanup pass (it may contain trailing commas), so we just splice it in here.
+      return `{ "__kind": "CanvasGradient", "stops": ${callsArrayText} }`;
+    }
+  );
+}
+
+/**
  * Snapshot is almost JSON; clean it up so it will parse.
  * Intended for canvas snapshot payloads only.
  */
 export function parseSnapshotJson(text: string) {
   let cleaned = escapeInnerQuotesInDoubleQuotedPropertyLines(text.trim());
+  cleaned = rewriteCanvasGradientPrettyPrint(cleaned);
   // Relaxed JSON: trailing commas before `}` / `]`, and commas after `}` / `]` when
   // the next token is `}` / `]` / EOF (e.g. `[{...},]` snapshot fragments).
   let prev = '';
