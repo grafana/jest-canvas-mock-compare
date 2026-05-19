@@ -2073,7 +2073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:30.0.0, @types/jest@npm:^30.0.0":
+"@types/jest@npm:30.0.0":
   version: 30.0.0
   resolution: "@types/jest@npm:30.0.0"
   dependencies:
@@ -2101,7 +2101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:25.6.0, @types/node@npm:^25.6.0":
+"@types/node@npm:*, @types/node@npm:25.6.0":
   version: 25.6.0
   resolution: "@types/node@npm:25.6.0"
   dependencies:
@@ -4380,13 +4380,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jest-canvas-mock-compare@workspace:packages/jest-canvas-mock-compare"
   dependencies:
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.6.0"
+    "@types/jest": "npm:30.0.0"
+    "@types/node": "npm:25.6.0"
     jest: "npm:30.3.0"
-    jest-canvas-mock: "npm:^2.5.2"
-    jest-snapshot: "npm:^30.3.0"
+    jest-canvas-mock: "npm:2.5.2"
+    jest-snapshot: "npm:30.3.0"
     ts-jest: "npm:29"
-    tsup: "npm:^8.5.1"
+    tsup: "npm:8.5.1"
     typescript: "npm:6.0.3"
   peerDependencies:
     jest: ">=29"
@@ -4402,7 +4402,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jest-canvas-mock@npm:2.5.2, jest-canvas-mock@npm:^2.5.2":
+"jest-canvas-mock@npm:2.5.2":
   version: 2.5.2
   resolution: "jest-canvas-mock@npm:2.5.2"
   dependencies:
@@ -4760,7 +4760,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-snapshot@npm:30.3.0, jest-snapshot@npm:^30.3.0":
+"jest-snapshot@npm:30.3.0":
   version: 30.3.0
   resolution: "jest-snapshot@npm:30.3.0"
   dependencies:
@@ -6812,7 +6812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.5.1":
+"tsup@npm:8.5.1":
   version: 8.5.1
   resolution: "tsup@npm:8.5.1"
   dependencies:
