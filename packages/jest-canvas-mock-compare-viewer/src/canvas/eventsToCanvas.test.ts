@@ -104,10 +104,7 @@ describe('eventsToCanvasScript gradient replay', () => {
 
     // Second script's strokeStyle should *not* see that gradient — it falls back to a
     // throwaway zero-extent gradient instead.
-    eventsToCanvasScript(
-      [event('strokeStyle', { value: { __kind: 'CanvasGradient', stops: [[0, '#deadbe']] } })],
-      ctx
-    );
+    eventsToCanvasScript([event('strokeStyle', { value: { __kind: 'CanvasGradient', stops: [[0, '#deadbe']] } })], ctx);
 
     // Two creations recorded: one from the first call (the leaked one) and one fallback from the
     // second call.

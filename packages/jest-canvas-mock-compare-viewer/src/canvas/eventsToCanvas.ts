@@ -12,19 +12,11 @@ type ReplayState = {
 };
 
 type SerializedCanvasGradient = {
-  __kind: 'CanvasGradient';
-  stops: Array<[number, string]>;
+  addColorStop: Array<[number, string]>;
 };
 
 function isSerializedCanvasGradient(value: unknown): value is SerializedCanvasGradient {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    (value as { __kind?: unknown }).__kind === 'CanvasGradient' &&
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    Array.isArray((value as { stops?: unknown }).stops)
-  );
+  return typeof value === 'object' && value !== null && 'addColorStop' in value && Array.isArray(value.addColorStop);
 }
 
 /**
@@ -199,7 +191,7 @@ function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingConte
         // throwaway gradient if the stream is malformed so we still render *something*
         // rather than silently coercing to black.
         const gradient = state.pendingGradients.shift() ?? ctx.createLinearGradient(0, 0, 0, 0);
-        for (const [offset, color] of value.stops) {
+        for (const [offset, color] of value.addColorStop) {
           gradient.addColorStop(offset, color);
         }
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -236,9 +228,7 @@ function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingConte
       state.pendingGradients.push(ctx.createLinearGradient(props.x0, props.y0, props.x1, props.y1));
       return;
     case 'createRadialGradient':
-      state.pendingGradients.push(
-        ctx.createRadialGradient(props.x0, props.y0, props.r0, props.x1, props.y1, props.r1)
-      );
+      state.pendingGradients.push(ctx.createRadialGradient(props.x0, props.y0, props.r0, props.x1, props.y1, props.r1));
       return;
     case 'createPattern':
       // Image source is not captured in the snapshot payload.

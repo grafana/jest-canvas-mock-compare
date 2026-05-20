@@ -7,7 +7,7 @@ import path from 'node:path';
 import { DEFAULT_COMPARE_PAYLOAD_DIRECTORY } from './constants.ts';
 import { parseSnapshotJson } from './parseSnapshotJson.ts';
 import { jestSnapshotRootDirFromContext, resolveCanvasComparePayloadWriteTarget } from './payloadWriteTarget.ts';
-import { serializeCanvasGradients } from './serializeCanvasGradients.ts';
+import { replaceMockCanvasGradientWithCallArgs as serializeEvents } from './replaceMocksWithCallArgs.ts';
 import type { JestCanvasMockComparePayload } from './types.ts';
 import { buildCompareViewerUrl } from './viewerLink.ts';
 
@@ -24,12 +24,14 @@ type SnapshotMismatch = jest.CustomMatcherResult & {
 
 export function toMatchCanvasSnapshot(
   this: MatcherContext,
-  received: CanvasRenderingContext2DEvent[],
+  receivedRaw: CanvasRenderingContext2DEvent[],
   canvasContextEvents: CanvasRenderingContext2DEvent[],
   size: CanvasSize,
   snapshotHint?: string,
   ...rest: ToMatchSnapshotRest
 ): jest.CustomMatcherResult {
+  const received = serializeEvents(receivedRaw);
+
   const payloadWidth = size.width;
   const payloadHeight = size.height;
 
@@ -54,10 +56,7 @@ export function toMatchCanvasSnapshot(
   if (!process.env.CI && ((!result.pass && result.expected != null) || process.env.GEN_CANVAS_OUTPUT_ON_PASS)) {
     let expected = result.expected;
     if (!expected) {
-      // `received` may contain live `CanvasGradient` instances; their stops live on a jest mock
-      // and would be lost by a naive `JSON.stringify`. Convert them to a JSON-safe placeholder
-      // that the viewer can pair with the corresponding `createLinearGradient` event at replay.
-      expected = JSON.stringify(serializeCanvasGradients(received));
+      expected = JSON.stringify(serializeEvents(received));
     }
     let parsedExpected;
     try {
@@ -73,7 +72,7 @@ export function toMatchCanvasSnapshot(
       testName,
       testPath: this.testPath,
       expected: parsedExpected,
-      actual: serializeCanvasGradients(received),
+      actual: received,
       canvasContextEvents: canvasContextEvents,
       width: payloadWidth,
       height: payloadHeight,
