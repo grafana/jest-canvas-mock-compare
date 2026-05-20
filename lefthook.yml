@@ -2,7 +2,7 @@ pre-commit:
   commands:
     typecheck:
       run: yarn typecheck
-    format-check:
+    format:
       run: yarn format
     lint:
       run: yarn lint
