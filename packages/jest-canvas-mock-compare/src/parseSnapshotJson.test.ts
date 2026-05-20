@@ -20,7 +20,7 @@ describe('parseSnapshotJson', () => {
     expect(parseSnapshotJson(actual)).toEqual(JSON.parse(actual));
   });
 
-  test('rewrites Jest pretty-print CanvasGradient values into the structured placeholder', () => {
+  test('rewrites Jest pretty-print CanvasGradient values into serialized addColorStop calls', () => {
     const blob = `[
   {
     "props": {
@@ -44,8 +44,7 @@ describe('parseSnapshotJson', () => {
     const parsed = parseSnapshotJson(blob);
     expect(parsed[0].type).toBe('strokeStyle');
     expect(parsed[0].props.value).toEqual({
-      __kind: 'CanvasGradient',
-      stops: [
+      addColorStop: [
         [0, '#73BF69ff'],
         [1, '#F2495Cff'],
       ],

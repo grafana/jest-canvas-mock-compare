@@ -4,8 +4,8 @@ import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
  * Per-replay state for pairing gradient creation events with subsequent `strokeStyle`/`fillStyle`
  * assignments. `CanvasGradient` instances don't survive snapshot serialization (stops live on a
  * jest mock; geometry is recorded as a separate `createLinearGradient` event), so the matcher
- * sends each gradient as a `{ __kind: 'CanvasGradient', stops }` placeholder. We rebuild a real
- * `CanvasGradient` here by FIFO-pairing each placeholder with the next pending geometry.
+ * sends each gradient as `{ addColorStop: [[offset, color], ...] }`. We rebuild a real
+ * `CanvasGradient` here by FIFO-pairing each serialized gradient with the next pending geometry.
  */
 type ReplayState = {
   pendingGradients: CanvasGradient[];

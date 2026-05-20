@@ -3,6 +3,8 @@ pre-commit:
     typecheck:
       run: yarn typecheck
     format-check:
-      run: yarn format:check
+      run: yarn format
     lint:
       run: yarn lint
+    test:
+      run: yarn test

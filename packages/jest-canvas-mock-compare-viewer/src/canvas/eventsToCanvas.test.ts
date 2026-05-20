@@ -14,6 +14,10 @@ function event(type: string, props: Record<string, unknown>): CanvasRenderingCon
   return { type, transform: [1, 0, 0, 1, 0, 0], props } as CanvasRenderingContext2DEvent;
 }
 
+function serializedGradient(stops: Array<[number, string]>) {
+  return { addColorStop: stops };
+}
+
 function gradientMock(value: unknown): { addColorStop: jest.Mock } {
   // The viewer reconstructs a real `CanvasGradient` from `jest-canvas-mock`, whose
   // `addColorStop` is a jest.fn we can introspect — but TypeScript only sees the DOM
@@ -23,7 +27,7 @@ function gradientMock(value: unknown): { addColorStop: jest.Mock } {
 }
 
 describe('eventsToCanvasScript gradient replay', () => {
-  test('pairs the structured CanvasGradient placeholder with the most recent createLinearGradient and assigns it', () => {
+  test('pairs serialized addColorStop calls with the most recent createLinearGradient and assigns it', () => {
     const ctx = makeCtx();
     const linearSpy = jest.spyOn(ctx, 'createLinearGradient');
 
@@ -31,21 +35,16 @@ describe('eventsToCanvasScript gradient replay', () => {
       [
         event('createLinearGradient', { x0: 0, y0: 0, x1: 0, y1: 50 }),
         event('strokeStyle', {
-          value: {
-            __kind: 'CanvasGradient',
-            stops: [
-              [0, '#73BF69ff'],
-              [1, '#F2495Cff'],
-            ],
-          },
+          value: serializedGradient([
+            [0, '#73BF69ff'],
+            [1, '#F2495Cff'],
+          ]),
         }),
       ],
       ctx
     );
 
     expect(linearSpy).toHaveBeenCalledWith(0, 0, 0, 50);
-    // The strokeStyle is now a real CanvasGradient (jest-canvas-mock's class) whose
-    // addColorStop received both stops.
     const stroke = gradientMock(ctx.strokeStyle);
     expect(stroke.addColorStop).toBeDefined();
     expect(stroke.addColorStop.mock.calls).toEqual([
@@ -62,8 +61,8 @@ describe('eventsToCanvasScript gradient replay', () => {
       [
         event('createLinearGradient', { x0: 0, y0: 0, x1: 0, y1: 10 }),
         event('createLinearGradient', { x0: 0, y0: 20, x1: 0, y1: 30 }),
-        event('strokeStyle', { value: { __kind: 'CanvasGradient', stops: [[0.5, '#111111']] } }),
-        event('fillStyle', { value: { __kind: 'CanvasGradient', stops: [[0.5, '#222222']] } }),
+        event('strokeStyle', { value: serializedGradient([[0.5, '#111111']]) }),
+        event('fillStyle', { value: serializedGradient([[0.5, '#222222']]) }),
       ],
       ctx
     );
@@ -83,14 +82,12 @@ describe('eventsToCanvasScript gradient replay', () => {
       [
         event('createLinearGradient', { x0: 0, y0: 0, x1: 0, y1: 50 }),
         event('strokeStyle', { value: '#ff0000' }),
-        event('fillStyle', { value: { __kind: 'CanvasGradient', stops: [[0, '#aabbcc']] } }),
+        event('fillStyle', { value: serializedGradient([[0, '#aabbcc']]) }),
       ],
       ctx
     );
 
-    // Solid color was assigned literally
     expect(ctx.strokeStyle).toBe('#ff0000');
-    // The previously-created gradient is consumed by the *fillStyle* assignment, not the stroke
     const fill = gradientMock(ctx.fillStyle);
     expect(fill.addColorStop.mock.calls).toEqual([[0, '#aabbcc']]);
   });
@@ -99,16 +96,10 @@ describe('eventsToCanvasScript gradient replay', () => {
     const ctx = makeCtx();
     const linearSpy = jest.spyOn(ctx, 'createLinearGradient');
 
-    // First script leaves an unconsumed gradient in its local queue.
     eventsToCanvasScript([event('createLinearGradient', { x0: 0, y0: 0, x1: 0, y1: 50 })], ctx);
+    expect(linearSpy).toHaveBeenLastCalledWith(0, 0, 0, 50);
 
-    // Second script's strokeStyle should *not* see that gradient — it falls back to a
-    // throwaway zero-extent gradient instead.
-    eventsToCanvasScript([event('strokeStyle', { value: { __kind: 'CanvasGradient', stops: [[0, '#deadbe']] } })], ctx);
-
-    // Two creations recorded: one from the first call (the leaked one) and one fallback from the
-    // second call.
-    expect(linearSpy).toHaveBeenCalledTimes(2);
+    eventsToCanvasScript([event('strokeStyle', { value: serializedGradient([[0, '#deadbe']]) })], ctx);
     expect(linearSpy).toHaveBeenLastCalledWith(0, 0, 0, 0);
   });
 });

@@ -41,16 +41,16 @@ function escapeInnerQuotesInDoubleQuotedPropertyLines(text: string): string {
  *     },
  *   }
  *
- * That's not valid JSON. Rewrite it into the structured `{ __kind, stops }` placeholder used
- * everywhere else so `JSON.parse` succeeds and the viewer can replay the gradient.
+ * That's not valid JSON. Rewrite it into `{ addColorStop: [...] }` so `JSON.parse` succeeds
+ * and the viewer can replay the gradient.
  */
 function rewriteCanvasGradientPrettyPrint(text: string): string {
   return text.replace(
     /CanvasGradient\s*\{\s*"addColorStop":\s*\[MockFunction\]\s*\{\s*"calls":\s*(\[[\s\S]*?\])\s*,\s*"results":[\s\S]*?\}\s*,?\s*\}/g,
     (_match, callsArrayText: string) => {
-      // `callsArrayText` is the stops array; it round-trips through JSON.parse after the
-      // outer cleanup pass (it may contain trailing commas), so we just splice it in here.
-      return `{ "__kind": "CanvasGradient", "stops": ${callsArrayText} }`;
+      // `callsArrayText` is the addColorStop call list; it round-trips through JSON.parse after
+      // the outer cleanup pass (it may contain trailing commas), so we just splice it in here.
+      return `{ "addColorStop": ${callsArrayText} }`;
     }
   );
 }
