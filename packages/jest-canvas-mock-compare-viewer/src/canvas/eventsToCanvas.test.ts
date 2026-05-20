@@ -75,6 +75,31 @@ describe('eventsToCanvasScript gradient replay', () => {
     expect(fill.addColorStop.mock.calls).toEqual([[0.5, '#222222']]);
   });
 
+  test('pairs serialized addColorStop calls with createRadialGradient and assigns fillStyle', () => {
+    const ctx = makeCtx();
+    const radialSpy = jest.spyOn(ctx, 'createRadialGradient');
+
+    eventsToCanvasScript(
+      [
+        event('createRadialGradient', { x0: 25, y0: 25, r0: 0, x1: 25, y1: 25, r1: 50 }),
+        event('fillStyle', {
+          value: serializedGradient([
+            [0, '#ffffff'],
+            [1, '#000000'],
+          ]),
+        }),
+      ],
+      ctx
+    );
+
+    expect(radialSpy).toHaveBeenCalledWith(25, 25, 0, 25, 25, 50);
+    const fill = gradientMock(ctx.fillStyle);
+    expect(fill.addColorStop.mock.calls).toEqual([
+      [0, '#ffffff'],
+      [1, '#000000'],
+    ]);
+  });
+
   test('still assigns solid color strings without consuming any pending gradient', () => {
     const ctx = makeCtx();
 

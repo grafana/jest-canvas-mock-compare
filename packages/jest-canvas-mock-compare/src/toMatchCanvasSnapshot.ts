@@ -7,7 +7,7 @@ import path from 'node:path';
 import { DEFAULT_COMPARE_PAYLOAD_DIRECTORY } from './constants.ts';
 import { parseSnapshotJson } from './parseSnapshotJson.ts';
 import { jestSnapshotRootDirFromContext, resolveCanvasComparePayloadWriteTarget } from './payloadWriteTarget.ts';
-import { replaceMockCanvasGradientWithCallArgs as serializeEvents } from './replaceMocksWithCallArgs.ts';
+import { replaceMocksWithCallArgs as transformEventsToSerializable } from './replaceMocksWithCallArgs.ts';
 import type { JestCanvasMockComparePayload } from './types.ts';
 import { buildCompareViewerUrl } from './viewerLink.ts';
 
@@ -25,12 +25,13 @@ type SnapshotMismatch = jest.CustomMatcherResult & {
 export function toMatchCanvasSnapshot(
   this: MatcherContext,
   receivedRaw: CanvasRenderingContext2DEvent[],
-  canvasContextEvents: CanvasRenderingContext2DEvent[],
+  canvasContextEventsRaw: CanvasRenderingContext2DEvent[],
   size: CanvasSize,
   snapshotHint?: string,
   ...rest: ToMatchSnapshotRest
 ): jest.CustomMatcherResult {
-  const received = serializeEvents(receivedRaw);
+  const received = transformEventsToSerializable(receivedRaw);
+  const canvasContextEvents = transformEventsToSerializable(canvasContextEventsRaw);
 
   const payloadWidth = size.width;
   const payloadHeight = size.height;
@@ -56,7 +57,7 @@ export function toMatchCanvasSnapshot(
   if (!process.env.CI && ((!result.pass && result.expected != null) || process.env.GEN_CANVAS_OUTPUT_ON_PASS)) {
     let expected = result.expected;
     if (!expected) {
-      expected = JSON.stringify(serializeEvents(received));
+      expected = JSON.stringify(received);
     }
     let parsedExpected;
     try {
@@ -73,7 +74,7 @@ export function toMatchCanvasSnapshot(
       testPath: this.testPath,
       expected: parsedExpected,
       actual: received,
-      canvasContextEvents: canvasContextEvents,
+      canvasContextEvents,
       width: payloadWidth,
       height: payloadHeight,
       snapshotAssertionPassed: result.pass,

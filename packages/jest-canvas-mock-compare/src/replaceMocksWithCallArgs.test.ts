@@ -1,5 +1,5 @@
 import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
-import { replaceMockCanvasGradientWithCallArgs } from './replaceMocksWithCallArgs.ts';
+import { replaceMocksWithCallArgs } from './replaceMocksWithCallArgs.ts';
 
 const IDENTITY_TRANSFORM: CanvasRenderingContext2DEvent['transform'] = [1, 0, 0, 1, 0, 0];
 
@@ -48,7 +48,7 @@ const fillPathEvent: CanvasRenderingContext2DEvent = {
 describe('replaceMockMethodsWithCallArgs', () => {
   it('serializes CanvasGradient on strokeStyle (3 stops, threshold)', () => {
     const input = [thresholdStroke];
-    const out = replaceMockCanvasGradientWithCallArgs(input);
+    const out = replaceMocksWithCallArgs(input);
 
     expect(out[0].props.value).toEqual({
       addColorStop: [
@@ -60,7 +60,7 @@ describe('replaceMockMethodsWithCallArgs', () => {
   });
 
   it('serializes fillStyle rgba gradient (2 stops)', () => {
-    const out = replaceMockCanvasGradientWithCallArgs([hueFill]);
+    const out = replaceMocksWithCallArgs([hueFill]);
     expect(out[0].props.value).toEqual({
       addColorStop: [
         [0, 'rgba(197, 173, 160, 0.17)'],
@@ -71,13 +71,13 @@ describe('replaceMockMethodsWithCallArgs', () => {
 
   it('leaves primitive value events unchanged', () => {
     const event = styleEvent('lineWidth', 1);
-    const out = replaceMockCanvasGradientWithCallArgs([event]);
+    const out = replaceMocksWithCallArgs([event]);
     expect(out[0]).toBe(event);
     expect(out[0].props.value).toBe(1);
   });
 
   it('leaves path-only draw events unchanged', () => {
-    const out = replaceMockCanvasGradientWithCallArgs([fillPathEvent]);
+    const out = replaceMocksWithCallArgs([fillPathEvent]);
     expect(out[0]).toBe(fillPathEvent);
   });
 });

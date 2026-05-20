@@ -20,7 +20,7 @@ function serializeMockFunctions(value: unknown): unknown {
  * This was written specifically to support `CanvasGradient`, it might require some modification for other jest mocks in the CanvasRenderingContext2DEvent output in jest-canvas-mock
  * @param events
  */
-export function replaceMockCanvasGradientWithCallArgs(
+export function replaceMocksWithCallArgs(
   events: CanvasRenderingContext2DEvent[] | Array<Omit<CanvasRenderingContext2DEvent, 'transform'>>
 ) {
   return events.map((event) => {
