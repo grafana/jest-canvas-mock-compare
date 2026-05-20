@@ -16,7 +16,7 @@ export interface JestCanvasMockComparePayload {
   /**
    * additional canvas context outside the scope of the test assertion. These events will be rendered in the panel
    */
-  canvasContextEvents: CanvasRenderingContext2DEvent[];
+  canvasContextEvents: CanvasRenderingContext2DEvent[] | Array<Omit<CanvasRenderingContext2DEvent, 'transform'>>;
   /** test canvas width (CSS px) */
   width: number;
   /** test canvas height (CSS px) */

@@ -2376,7 +2376,7 @@ __metadata:
     "@types/react-dom": "npm:19.2.3"
     jest: "npm:30.3.0"
     jest-canvas-mock: "npm:2.5.2"
-    jest-canvas-mock-compare: "npm:0.0.4"
+    jest-canvas-mock-compare: "file:../packages/jest-canvas-mock-compare"
     jest-canvas-mock-compare-viewer: "npm:0.0.5"
     jest-environment-jsdom: "npm:30.3.0"
     jest-snapshot: "npm:30.3.0"
@@ -2405,9 +2405,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-canvas-mock-compare@npm:0.0.4":
-  version: 0.0.4
-  resolution: "jest-canvas-mock-compare@npm:0.0.4"
+"jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare::locator=jest-canvas-mock-compare-demo%40workspace%3A.":
+  version: 0.1.0
+  resolution: "jest-canvas-mock-compare@file:../packages/jest-canvas-mock-compare#../packages/jest-canvas-mock-compare::hash=4c2975&locator=jest-canvas-mock-compare-demo%40workspace%3A."
   peerDependencies:
     jest: ">=29"
     jest-canvas-mock: ">=2.5"
@@ -2419,25 +2419,7 @@ __metadata:
       optional: false
     jest-snapshot:
       optional: false
-  checksum: 10c0/a16ecd24bda167106e535b9f79681c332ef9df6f9dd1ea04a1dfc43e46141ce8b895c961e4238042cfcb8c4ad4384c2210751efc6cfb40ec5212c67c336e71fe
-  languageName: node
-  linkType: hard
-
-"jest-canvas-mock-compare@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "jest-canvas-mock-compare@npm:0.0.3"
-  peerDependencies:
-    jest: ">=29"
-    jest-canvas-mock: ">=2.5"
-    jest-snapshot: ">=29"
-  peerDependenciesMeta:
-    jest:
-      optional: false
-    jest-canvas-mock:
-      optional: false
-    jest-snapshot:
-      optional: false
-  checksum: 10c0/c43b782aaf9982c598ced28f42f0a136c1374792c83420c2162cf8507ec9091361d274eee355ec4992a034a56dc63a536520734f30d18d0c6cdc1f65541a4033
+  checksum: 10c0/d0c797aaab107c99440bbea37fdb4b0a6fb13dd92919882e951e91972c3fbcde2dacb262c5f6e2ddd3c507565cdb370721638ce462dab890ad22839db86aebc4
   languageName: node
   linkType: hard
 

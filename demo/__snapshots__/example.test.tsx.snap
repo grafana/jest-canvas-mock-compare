@@ -1,5 +1,130 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`Examples gradient linear and radial fill styles serialize addColorStop in snapshot 1`] = `
+[
+  {
+    "props": {
+      "x0": 0,
+      "x1": 100,
+      "y0": 0,
+      "y1": 0,
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "createLinearGradient",
+  },
+  {
+    "props": {
+      "value": {
+        "addColorStop": [
+          [
+            0,
+            "#73BF69",
+          ],
+          [
+            1,
+            "#F2495C",
+          ],
+        ],
+      },
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  {
+    "props": {
+      "height": 25,
+      "width": 100,
+      "x": 0,
+      "y": 0,
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  {
+    "props": {
+      "r0": 0,
+      "r1": 40,
+      "x0": 50,
+      "x1": 50,
+      "y0": 37.5,
+      "y1": 37.5,
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "createRadialGradient",
+  },
+  {
+    "props": {
+      "value": {
+        "addColorStop": [
+          [
+            0,
+            "#ffffff",
+          ],
+          [
+            1,
+            "#000000",
+          ],
+        ],
+      },
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  {
+    "props": {
+      "height": 25,
+      "width": 100,
+      "x": 0,
+      "y": 25,
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+]
+`;
+
 exports[`Examples uPlot fails 1`] = `
 [
   {
