@@ -5,7 +5,7 @@
     "url": "https://github.com/grafana/jest-canvas-mock-compare.git",
     "directory": "packages/jest-canvas-mock-compare-viewer"
   },
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Web UI for comparing Jest canvas snapshot payloads produced by jest-canvas-mock-compare.",
   "license": "AGPL-3.0-only",
   "type": "module",
