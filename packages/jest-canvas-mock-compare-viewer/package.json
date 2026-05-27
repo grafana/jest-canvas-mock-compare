@@ -69,7 +69,7 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.46.0",
     "uplot": "1.6.32",
-    "vite": "6.3.4"
+    "vite": "6.4.2"
   },
   "publishConfig": {
     "access": "public",
