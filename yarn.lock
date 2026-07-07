@@ -4313,7 +4313,7 @@ __metadata:
     prettier: "npm:3.8.3"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
-    ts-jest: "npm:29"
+    ts-jest: "npm:29.4.9"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.46.0"
     uplot: "npm:1.6.32"
@@ -4347,7 +4347,7 @@ __metadata:
     react-dom: "npm:19.1.0"
     react-error-boundary: "npm:6.1.1"
     sirv: "npm:3.0.0"
-    ts-jest: "npm:29"
+    ts-jest: "npm:29.4.9"
     tsup: "npm:8.4.0"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.46.0"
@@ -4385,7 +4385,7 @@ __metadata:
     jest: "npm:30.3.0"
     jest-canvas-mock: "npm:2.5.2"
     jest-snapshot: "npm:30.3.0"
-    ts-jest: "npm:29"
+    ts-jest: "npm:29.4.9"
     tsup: "npm:8.5.1"
     typescript: "npm:6.0.3"
   peerDependencies:
@@ -6715,7 +6715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:29":
+"ts-jest@npm:29.4.9":
   version: 29.4.9
   resolution: "ts-jest@npm:29.4.9"
   dependencies:
