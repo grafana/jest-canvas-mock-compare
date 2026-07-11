@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "@types/jest": "30.0.0",
-    "@types/node": "25.6.0",
+    "@types/node": "25.9.5",
     "jest": "30.3.0",
     "jest-canvas-mock": "2.5.2",
     "jest-snapshot": "30.3.0",
