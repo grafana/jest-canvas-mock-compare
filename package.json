@@ -36,7 +36,7 @@
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "30.3.0",
     "jest-snapshot": "30.3.0",
-    "lefthook": "2.1.6",
+    "lefthook": "2.1.12",
     "prettier": "3.8.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
