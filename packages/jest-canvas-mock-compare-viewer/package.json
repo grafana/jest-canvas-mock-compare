@@ -44,7 +44,7 @@
     "json-diff-kit": "1.0.35",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-error-boundary": "6.1.1",
+    "react-error-boundary": "6.1.4",
     "sirv": "3.0.0"
   },
   "devDependencies": {
