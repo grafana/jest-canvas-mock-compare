@@ -46,8 +46,8 @@ Published packages use semantic versioning independently (`jest-canvas-mock-comp
 For changes that require a release:
 
 - Run `yarn changeset` and select the affected packages and appropriate version bumps.
-- Commit the generated `.changeset/*.md` file with the change.
-- After the change merges to `main`, the Release workflow creates or updates a release PR with package versions, internal dependency updates, and changelogs.
-- Merging the release PR triggers automatic publication to npm. `prepublishOnly` runs `build` and `test` for each package.
+- Run `yarn changeset version` to apply package versions, internal dependency updates, and changelogs, then run `yarn install` to update the lockfile.
+- Commit the versioned changes and lockfile with the change. The version command consumes the Changeset files.
+- Merging to `main` triggers the Release workflow, which publishes unpublished package versions to npm. `prepublishOnly` runs `build` and `test` for each package.
 
-The workflow uses [Changesets](https://github.com/changesets/changesets); manual version bumps and local publishing are not needed for this flow.
+The workflow uses [Changesets](https://github.com/changesets/changesets). Automated release PR creation requires the repository setting that allows GitHub Actions to create pull requests; until enabled, apply versions locally as above. Local publishing is not needed.

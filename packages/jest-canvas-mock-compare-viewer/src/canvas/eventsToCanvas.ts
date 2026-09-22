@@ -1,5 +1,7 @@
 import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
 
+export type CanvasReplayEvent = Pick<CanvasRenderingContext2DEvent, 'type' | 'props'>;
+
 /**
  * Per-replay state for pairing gradient creation events with subsequent `strokeStyle`/`fillStyle`
  * assignments. `CanvasGradient` instances don't survive snapshot serialization (stops live on a
@@ -25,14 +27,14 @@ function isSerializedCanvasGradient(value: unknown): value is SerializedCanvasGr
  * @param data
  * @param ctx
  */
-export function eventsToCanvasScript(data: CanvasRenderingContext2DEvent[], ctx: CanvasRenderingContext2D) {
+export function eventsToCanvasScript(data: CanvasReplayEvent[], ctx: CanvasRenderingContext2D) {
   const state: ReplayState = { pendingGradients: [] };
   for (const ev of data) {
     emitOne(ev, ctx, state);
   }
 }
 
-function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingContext2D, state: ReplayState) {
+function emitOne(event: CanvasReplayEvent, ctx: CanvasRenderingContext2D, state: ReplayState) {
   const { type, props = {} } = event;
 
   switch (type) {
@@ -260,7 +262,7 @@ function emitOne(event: CanvasRenderingContext2DEvent, ctx: CanvasRenderingConte
   }
 }
 
-function emitSubpath(pathEvents: CanvasRenderingContext2DEvent[], ctx: CanvasRenderingContext2D) {
+function emitSubpath(pathEvents: CanvasReplayEvent[], ctx: CanvasRenderingContext2D) {
   if (!Array.isArray(pathEvents) || pathEvents.length === 0) {
     return;
   }
@@ -273,7 +275,7 @@ function emitSubpath(pathEvents: CanvasRenderingContext2DEvent[], ctx: CanvasRen
   }
 }
 
-function emitPathBuilding(ev: CanvasRenderingContext2DEvent, ctx: CanvasRenderingContext2D) {
+function emitPathBuilding(ev: CanvasReplayEvent, ctx: CanvasRenderingContext2D) {
   const { type, props = {} } = ev;
   switch (type) {
     case 'beginPath':

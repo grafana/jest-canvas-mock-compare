@@ -1,11 +1,12 @@
 import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
+import type { JestCanvasMockComparePayload } from 'jest-canvas-mock-compare';
 
 export type ResolvedPayload = {
   testName: string;
   testPath?: string;
   expected: CanvasRenderingContext2DEvent[];
   actual: CanvasRenderingContext2DEvent[];
-  uPlotCanvasEvents: CanvasRenderingContext2DEvent[];
+  uPlotCanvasEvents: JestCanvasMockComparePayload['canvasContextEvents'];
   width?: number;
   height?: number;
   snapshotAssertionPassed?: boolean;
