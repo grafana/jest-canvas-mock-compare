@@ -3,7 +3,7 @@
 A simple development package Jest utility aimed to make it easier to debug HTML canvas visual regression integration tests.
 This package provides an additional Jest matcher `toMatchCanvasSnapshot`, and is meant to be paired with the [viewer package](https://www.npmjs.com/package/jest-canvas-mock-compare-viewer) for debugging the results of the `toMatchCanvasSnapshot` assertion visually.
 
-**License:** [AGPL-3.0-only](./LICENSE)
+**License:** [Apache-2.0](./LICENSE)
 
 ## Install
 

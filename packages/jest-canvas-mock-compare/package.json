@@ -5,9 +5,9 @@
     "url": "https://github.com/grafana/jest-canvas-mock-compare.git",
     "directory": "packages/jest-canvas-mock-compare"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Jest matchers for canvas snapshots with a visual diff workflow.",
-  "license": "AGPL-3.0-only",
+  "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
   "engines": {

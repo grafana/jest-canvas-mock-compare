@@ -8,7 +8,7 @@ snapshots disagree.
 | [`jest-canvas-mock-compare`](./packages/jest-canvas-mock-compare)               | `jest-canvas-mock-compare`        | `expect.extend(matchers)`, payloads under **`rootDir`/`.jest-canvas-mock-compare/`** |
 | [`jest-canvas-mock-compare-viewer`](./packages/jest-canvas-mock-compare-viewer) | `jest-canvas-mock-compare-viewer` | CLI `jest-canvas-mock-compare` (no flags) + Vite UI                                  |
 
-Licensed under [AGPL-3.0-only](./LICENSE).
+Licensed under [Apache-2.0](./LICENSE).
 
 ## Quick start
 
