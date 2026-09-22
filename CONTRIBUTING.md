@@ -4,7 +4,7 @@ Thanks for your interest in improving this project.
 
 ## License
 
-This project is licensed under the [GNU Affero General Public License v3.0 only](https://www.gnu.org/licenses/agpl-3.0.en.html) (see [LICENSE](./LICENSE)). Contributions you submit will be under the same license.
+This project is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) (see [LICENSE](./LICENSE)). Contributions you submit will be under the same license.
 
 ## Development setup
 
@@ -43,10 +43,11 @@ Use GitHub Issues and choose the bug or feature template under [`.github/ISSUE_T
 
 Published packages use semantic versioning independently (`jest-canvas-mock-compare` and `jest-canvas-mock-compare-viewer` may diverge).
 
-Before publishing:
+For changes that require a release:
 
-- Update the relevant `CHANGELOG.md` under `packages/<name>/`.
-- Bump the package `version` in `package.json`.
-- `prepublishOnly` runs `build` and `test` for that package.
+- Run `yarn changeset` and select the affected packages and appropriate version bumps.
+- Commit the generated `.changeset/*.md` file with the change.
+- After the change merges to `main`, the Release workflow creates or updates a release PR with package versions, internal dependency updates, and changelogs.
+- Merging the release PR triggers automatic publication to npm. `prepublishOnly` runs `build` and `test` for each package.
 
-Maintainers may adopt [Changesets](https://github.com/changesets/changesets) or another release automation workflow on the canonical GitHub repository once it is configured.
+The workflow uses [Changesets](https://github.com/changesets/changesets); manual version bumps and local publishing are not needed for this flow.

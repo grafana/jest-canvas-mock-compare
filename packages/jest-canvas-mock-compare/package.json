@@ -7,7 +7,7 @@
   },
   "version": "0.1.0",
   "description": "Jest matchers for canvas snapshots with a visual diff workflow.",
-  "license": "AGPL-3.0-only",
+  "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
   "engines": {

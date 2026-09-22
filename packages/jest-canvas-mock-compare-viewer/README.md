@@ -2,7 +2,7 @@
 
 Static web UI for visualizing canvas snapshot diffs produced by [`jest-canvas-mock-compare`](https://www.npmjs.com/package/jest-canvas-mock-compare).
 
-**License:** [AGPL-3.0-only](./LICENSE)
+**License:** [Apache-2.0](./LICENSE)
 
 ## Install
 
