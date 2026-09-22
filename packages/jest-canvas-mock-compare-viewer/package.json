@@ -64,7 +64,7 @@
     "jest-canvas-mock": "2.5.2",
     "jest-environment-jsdom": "30.3.0",
     "jest-snapshot": "30.3.0",
-    "ts-jest": "29",
+    "ts-jest": "29.4.9",
     "tsup": "8.4.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.46.0",
