@@ -1,4 +1,3 @@
-import type { CanvasRenderingContext2DEvent } from 'jest-canvas-mock';
 import { useEffect, useState } from 'react';
 import { eventsToCanvasScript } from '../canvas/eventsToCanvas.ts';
 
@@ -7,7 +6,7 @@ type CanvasEventArray = Parameters<typeof eventsToCanvasScript>[0];
 interface UseDiffImageDataArgs {
   expectedEvents: CanvasEventArray;
   actualEvents: CanvasEventArray;
-  setupEvents: CanvasRenderingContext2DEvent[];
+  setupEvents: CanvasEventArray;
   includeSetup: boolean;
   width: number;
   height: number;
