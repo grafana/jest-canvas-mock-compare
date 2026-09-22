@@ -5,7 +5,6 @@
 ### Patch Changes
 
 - 3e88bd8: Change the license from AGPL-3.0-only to Apache-2.0.
-- Align canvas replay types with the matcher's support for events without `transform`.
 - Updated dependencies [3e88bd8]
   - jest-canvas-mock-compare@0.1.1
 
